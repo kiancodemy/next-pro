@@ -8,7 +8,7 @@ export default function Home() {
       className=" dark:bg-night md:max-w-3xl max-w-xs mt-8
       lg:max-w-7xl mx-auto p-5 lg:p-8 rounded-md flex flex-col gap-4"
     >
-      <h1 className="text-right dark:text-white rounded-md font-bold lg:text-4xl text-2xl text-verydark">
+      <h1 className="text-right dark:text-white font-bold lg:text-4xl text-2xl text-verydark">
         آخرین محصولات
       </h1>
       <div className="p-4 dark:text-white dark:bg-night grid md:grid-cols-2 grid-cols-1 gap-6 lg:grid-cols-4  md:max-w-3xl  rounded-md max-w-xs  lg:max-w-7xl mx-auto">
@@ -20,10 +20,15 @@ export default function Home() {
             >
               <Image
                 priority
-                className="object-cover h-[150px] rounded-md"
+                className="rounded-md"
                 width={900}
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  objectFit: "cover",
+                }}
                 height={100}
-                quality={10}
+                quality={1}
                 src={item.image}
                 alt="گوشی موبایل"
               />
