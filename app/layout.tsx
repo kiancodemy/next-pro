@@ -34,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${iran.variable} font-iran`}>
+      <body className={`${iran.variable} font-iran dark:bg-night`}>
         <Header></Header>
         {children}
       </body>

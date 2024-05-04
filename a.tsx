@@ -1,6 +1,11 @@
 export const a = [
   {
     id: 1,
+    color: [
+      { color: "زرد", code: "#FFC100" },
+      { color: "خاکستری", code: "#C7C8CC" },
+      { color: "سورمه ای", code: "#211951" },
+    ],
     name: " محصول شرکت اپل iPad",
     image: "/images/ipad.jpg",
     description: [
@@ -18,6 +23,11 @@ export const a = [
   },
   {
     id: 2,
+    color: [
+      { color: "زرد", code: "#FFC100" },
+      { color: "خاکستری", code: "#C7C8CC" },
+      { color: "سورمه ای", code: "#211951" },
+    ],
     name: " محصول شرکت اپل Macbook pro",
     image: "/images/mac pro.jpg",
     description: [
@@ -36,6 +46,11 @@ export const a = [
   },
   {
     id: 3,
+    color: [
+      { color: "زرد", code: "#FFC100" },
+      { color: "خاکستری", code: "#C7C8CC" },
+      { color: "سورمه ای", code: "#211951" },
+    ],
     name: " محصول شرکت اپل Macbook air",
     image: "/images/mac air.jpg",
     description: [
@@ -54,6 +69,11 @@ export const a = [
   },
   {
     id: 4,
+    color: [
+      { color: "زرد", code: "#FFC100" },
+      { color: "خاکستری", code: "#C7C8CC" },
+      { color: "سورمه ای", code: "#211951" },
+    ],
     name: " محصول شرکت اپل IMac",
     image: "/images/imac.jpg",
     description: [
@@ -72,6 +92,11 @@ export const a = [
   },
   {
     id: 5,
+    color: [
+      { color: "زرد", code: "#FFC100" },
+      { color: "خاکستری", code: "#C7C8CC" },
+      { color: "سورمه ای", code: "#211951" },
+    ],
     name: " محصول شرکت اپل IMac",
     image: "/images/imac.jpg",
     description: [
@@ -90,6 +115,11 @@ export const a = [
   },
   {
     id: 6,
+    color: [
+      { color: "زرد", code: "#FFC100" },
+      { color: "خاکستری", code: "#C7C8CC" },
+      { color: "سورمه ای", code: "#211951" },
+    ],
     name: " محصول شرکت اپل Apple Watch",
     image: "/images/watch.jpg",
     description: [
@@ -109,6 +139,11 @@ export const a = [
   },
   {
     id: 7,
+    color: [
+      { color: "زرد", code: "#FFC100" },
+      { color: "خاکستری", code: "#C7C8CC" },
+      { color: "سورمه ای", code: "#211951" },
+    ],
     name: "محول شرکت دل Del",
     image: "/images/del.jpg",
     description: [
@@ -127,6 +162,11 @@ export const a = [
   },
   {
     id: 8,
+    color: [
+      { color: "زرد", code: "#FFC100" },
+      { color: "خاکستری", code: "#C7C8CC" },
+      { color: "سورمه ای", code: "#211951" },
+    ],
     name: "محصول شرکت اپل iphone 14 ",
     image: "/images/iphone 14.jpg",
 
@@ -146,6 +186,11 @@ export const a = [
   },
   {
     id: 9,
+    color: [
+      { color: "زرد", code: "#FFC100" },
+      { color: "خاکستری", code: "#C7C8CC" },
+      { color: "سورمه ای", code: "#211951" },
+    ],
     name: "محصول شرکت اپل iphone 15 ",
     image: "/images/iphone 15.jpg",
 
@@ -165,6 +210,11 @@ export const a = [
   },
   {
     id: 10,
+    color: [
+      { color: "زرد", code: "#FFC100" },
+      { color: "خاکستری", code: "#C7C8CC" },
+      { color: "سورمه ای", code: "#211951" },
+    ],
     name: "محول شرکت ماکروسافت surface ",
     image: "/images/surface.jpg",
 
@@ -184,6 +234,11 @@ export const a = [
   },
   {
     id: 11,
+    color: [
+      { color: "زرد", code: "#FFC100" },
+      { color: "خاکستری", code: "#C7C8CC" },
+      { color: "سورمه ای", code: "#211951" },
+    ],
     name: "محصول شرکت گوگل google phone",
     image: "/images/g phone.jpg",
 
@@ -203,6 +258,11 @@ export const a = [
   },
   {
     id: 12,
+    color: [
+      { color: "زرد", code: "#FFC100" },
+      { color: "خاکستری", code: "#C7C8CC" },
+      { color: "سورمه ای", code: "#211951" },
+    ],
     name: "محصول شرکت اپل air pod ",
     image: "/images/airpod.jpg",
 

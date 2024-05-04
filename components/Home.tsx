@@ -23,10 +23,11 @@ export default function Home() {
                 className="object-cover h-[150px] rounded-md"
                 width={900}
                 height={100}
+                quality={10}
                 src={item.image}
                 alt="گوشی موبایل"
               />
-              <Link className=" text-right" href={`/product/`}>
+              <Link className=" text-right" href={`/product/${item.id}`}>
                 {item.name}
               </Link>
 
