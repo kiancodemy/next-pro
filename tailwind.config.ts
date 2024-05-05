@@ -19,6 +19,8 @@ const config: Config = {
         verydark: "#334155",
         backgray: "#ECEEEF",
         night: "#0E2338",
+        yelloww: "#FDDE55",
+        greyy: "#B4B4B8",
       },
     },
   },

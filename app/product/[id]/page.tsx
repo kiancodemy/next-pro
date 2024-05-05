@@ -1,6 +1,7 @@
+"use client";
 import { id } from "@/type";
-import type { Metadata } from "next";
-
+import { useState } from "react";
+import { FaCheck } from "react-icons/fa";
 import { a } from "@/a";
 import { MdOutlineShoppingCartCheckout } from "react-icons/md";
 import Image from "next/image";
@@ -8,6 +9,7 @@ import { FcApproval } from "react-icons/fc";
 import Link from "next/link";
 
 export default function page({ params }: id) {
+  const [color, setcolor] = useState("");
   const find = a.find((item) => item.id === Number(params.id));
   return (
     <div
@@ -64,7 +66,7 @@ export default function page({ params }: id) {
             </ol>
           </div>
         </div>
-        <div className="shadow-lg dark:border-white dark:border-2 rounded-md md:self-end lg:self-start p-8 flex flex-col gap-y-6 col-span-3">
+        <div className="shadow-lg dark:border-white dark:border-2 rounded-md md:self-end lg:self-start p-8 flex flex-col gap-y-8 col-span-3">
           <div className="flex dark:text-white flex-row-reverse justify-between">
             <span>قیمت</span>
             <div className="flex flex-row-reverse gap-x-3">
@@ -82,11 +84,43 @@ export default function page({ params }: id) {
               )}
             </div>
           </div>
+          <div className="flex flex-col gap-y-6">
+            <h1 className="flex flex-row-reverse justify-between">
+              <span>رنگ </span>
+              <span>{color}</span>
+            </h1>
+            <div className="flex flex-wrap flex-row-reverse gap-6">
+              {find?.color.map((items) => (
+                <div
+                  key={items.code}
+                  onClick={() => {
+                    setcolor(items.color);
+                  }}
+                  style={{
+                    backgroundColor: items.code,
+                  }}
+                  className={`w-[30px] border-2 border-solid border-grey-300  ${
+                    color === items.color
+                      ? "outline-mainblue outline-4 "
+                      : "outline-gray-300 outline-2"
+                  } outline-offset-4  outline flex justify-center items-center cursor-pointer h-[30px] rounded-full`}
+                >
+                  {items.color === color && (
+                    <FaCheck
+                      className={`${
+                        items.color === "سفید" ? "text-[#000]" : "text-white"
+                      } text-lg`}
+                    ></FaCheck>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
 
           {Number(find?.countInStock) > 0 && (
             <Link
               href={"/"}
-              className="bg-mainblue flex items-center py-2 px-4 dark:bg-gray-500 dark:text-white rounded-md hover:shadow-lg duration-300 flex-row-reverse justify-between text-white"
+              className="bg-mainblue flex items-center py-2 px-4 dark:bg-gray-500 dark:text-white rounded-md hover:shadow-xl duration-300 flex-row-reverse justify-between text-white"
             >
               <span>اضاف کردن به سبد خرید</span>
               <MdOutlineShoppingCartCheckout className="text-xl lg:text-2xl"></MdOutlineShoppingCartCheckout>

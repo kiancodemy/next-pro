@@ -2,7 +2,7 @@ export const a = [
   {
     id: 1,
     color: [
-      { color: "زرد", code: "#FFC100" },
+      { color: "سفید", code: "#FFC100" },
       { color: "خاکستری", code: "#C7C8CC" },
       { color: "سورمه ای", code: "#211951" },
     ],
@@ -163,7 +163,7 @@ export const a = [
   {
     id: 8,
     color: [
-      { color: "زرد", code: "#FFC100" },
+      { color: "سفید", code: "#fff" },
       { color: "خاکستری", code: "#C7C8CC" },
       { color: "سورمه ای", code: "#211951" },
     ],
