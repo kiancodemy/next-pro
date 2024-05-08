@@ -1,13 +1,11 @@
 import Product from "../models/productmodel.js";
 export const getall = async (req, res) => {
   try {
-    let query = Product.find({ price: { $gte: "68000000" } });
-
-    query = await query;
+    let query = await Product.find({});
 
     res.status(200).json(query);
   } catch (err) {
-    res.status(404).json({ message: err.message });
+    res.status(404).json(err.message);
   }
 };
 export const getById = async (req, res) => {

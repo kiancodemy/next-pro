@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
 import Header from "@/components/Header";
-
+import StoreProvider from "./storeprovider";
 const iran = localFont({
   src: [
     {
@@ -35,8 +35,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${iran.variable} font-iran dark:bg-night`}>
-        <Header></Header>
-        {children}
+        <StoreProvider>
+          <Header></Header>
+          {children}
+        </StoreProvider>
       </body>
     </html>
   );
