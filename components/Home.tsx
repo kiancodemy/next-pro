@@ -8,12 +8,7 @@ import { ProductType } from "@/type";
 
 import { useGetproductsQuery } from "@/lib/api/productslice";
 export default function Home() {
-  const {
-    data: item,
-    isLoading,
-    isError,
-    error,
-  } = useGetproductsQuery("products");
+  const { data: item, isLoading, isError } = useGetproductsQuery("products");
 
   return isLoading ? (
     <Loading></Loading>
@@ -28,25 +23,25 @@ export default function Home() {
         آخرین محصولات
       </h1>
       <div className="p-4 dark:text-white dark:bg-night grid md:grid-cols-2 grid-cols-1 gap-6 lg:grid-cols-4  md:max-w-3xl  rounded-md max-w-xs  lg:max-w-7xl mx-auto">
-        {item?.map((item: ProductType) => {
+        {item.map((item: ProductType) => {
           return (
             <div
               key={item._id}
               className="hover:shadow-xl dark:bg-night dark:text-white bg-white duration-300 hover:-translate-y-1 p-4 justify-between flex gap-6 flex-col shadow-lg border-inherit border-2 rounded-[16px] "
             >
               <Image
-                priority
                 className="rounded-md"
+                loading="lazy"
+                quality={1}
                 width={900}
+                height={100}
                 style={{
                   width: "100%",
                   height: "auto",
                   objectFit: "cover",
                 }}
-                height={100}
-                quality={1}
                 src={item.image}
-                alt="گوشی موبایل"
+                alt={item.description[0]}
               />
               <Link className=" text-right" href={`/product/${item._id}`}>
                 {item.name}

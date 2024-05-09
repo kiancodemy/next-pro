@@ -1,11 +1,12 @@
 "use client";
 import { configureStore } from "@reduxjs/toolkit";
-import counterSlice from "./features/productslice";
+
+import cardSlice from "./features/productslice";
 import { api } from "./api/apislice";
 export const store = configureStore({
   reducer: {
-    counter: counterSlice,
     [api.reducerPath]: api.reducer,
+    card: cardSlice,
   },
 
   middleware: (getDefaultMiddleware) =>

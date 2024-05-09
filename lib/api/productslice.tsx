@@ -4,7 +4,8 @@ const extendedApi = api.injectEndpoints({
   endpoints: (build) => ({
     Getproducts: build.query({
       query: (id) => ({ url: `/${id}` }),
-      keepUnusedDataFor: 5,
+
+      keepUnusedDataFor: 500,
     }),
     GetbyId: build.query({
       query: (id) => ({ url: `/products/${id}` }),

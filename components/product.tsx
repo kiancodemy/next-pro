@@ -2,6 +2,7 @@
 
 import Loading from "@/app/loading";
 import { Color } from "@/type";
+
 import Error from "@/app/erro";
 import { useGetbyIdQuery } from "@/lib/api/productslice";
 import { useState } from "react";
@@ -10,11 +11,16 @@ import { FaCheck } from "react-icons/fa";
 import { MdOutlineShoppingCartCheckout } from "react-icons/md";
 import Image from "next/image";
 import { FcApproval } from "react-icons/fc";
-import Link from "next/link";
+import { toast } from "react-toastify";
 
 export default function product({ id }: { id: string }) {
   const [color, setcolor] = useState("");
   const { data: find, isLoading, isError, error } = useGetbyIdQuery(id);
+  const additem = () => {
+    toast.success("kir", {
+      position: "top-right",
+    });
+  };
   return isLoading ? (
     <Loading></Loading>
   ) : isError ? (
@@ -36,7 +42,7 @@ export default function product({ id }: { id: string }) {
               objectFit: "cover",
             }}
             height={100}
-            quality={10}
+            quality={30}
             src={find.image || ""}
             alt="گوشی موبایل"
           />
@@ -126,13 +132,13 @@ export default function product({ id }: { id: string }) {
           </div>
 
           {Number(find.countInStock) > 0 && (
-            <Link
-              href={"/"}
+            <button
+              onClick={additem}
               className="bg-mainblue flex items-center py-2 px-4 dark:bg-gray-500 dark:text-white rounded-md hover:shadow-xl duration-300 flex-row-reverse justify-between text-white"
             >
               <span>اضاف کردن به سبد خرید</span>
               <MdOutlineShoppingCartCheckout className="text-xl lg:text-2xl"></MdOutlineShoppingCartCheckout>
-            </Link>
+            </button>
           )}
         </div>
       </div>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
+import { ToastContainer } from "react-toastify";
 import Header from "@/components/Header";
 import StoreProvider from "./storeprovider";
 const iran = localFont({

@@ -27,6 +27,4 @@ export interface ProductType {
   price: number;
   color: Color[];
   countInStock: number;
-  createdAt: string; // Assuming the createdAt and updatedAt are string dates
-  updatedAt: string;
 }
