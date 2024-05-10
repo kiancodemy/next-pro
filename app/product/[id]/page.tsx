@@ -1,7 +1,8 @@
 "use client";
 
 import { id } from "@/type";
-
+import { useDispatch } from "react-redux";
+import { addItems } from "@/lib/features/productslice";
 import Loading from "@/app/loading";
 import { Color } from "@/type";
 
@@ -16,11 +17,13 @@ import { FcApproval } from "react-icons/fc";
 
 export default function product({ params }: id) {
   const [color, setcolor] = useState("");
-  const { data: find, isLoading, isError, error } = useGetbyIdQuery(params.id);
+  const [qty, setqty] = useState(1);
+  const dipatch = useDispatch();
+  const { data: find, isLoading, isError } = useGetbyIdQuery(params.id);
   const additem = () => {
-    toast.success("kir", {
-      position: "top-right",
-    });
+    if (color) {
+      dipatch(addItems({ ...find, qty, finalcolor: color }));
+    }
   };
   return isLoading ? (
     <Loading></Loading>
@@ -44,7 +47,7 @@ export default function product({ params }: id) {
             }}
             height={100}
             quality={30}
-            src={find.image || ""}
+            src={find.image}
             alt="گوشی موبایل"
           />
         </div>
@@ -67,10 +70,10 @@ export default function product({ params }: id) {
 
           <div>
             <ol className="pl-6 flex flex-col gap-y-3 text-right py-2">
-              {find.description.map((item: string[]) => {
+              {find.description.map((item: string) => {
                 return (
                   <li
-                    key={item[0]}
+                    key={item}
                     className="flex text-verydark dark:text-white gap-2 justify-end"
                   >
                     <span>{item}</span>
@@ -133,13 +136,37 @@ export default function product({ params }: id) {
           </div>
 
           {Number(find.countInStock) > 0 && (
-            <button
-              onClick={additem}
-              className="bg-mainblue flex items-center py-2 px-4 dark:bg-gray-500 dark:text-white rounded-md hover:shadow-xl duration-300 flex-row-reverse justify-between text-white"
-            >
-              <span>اضاف کردن به سبد خرید</span>
-              <MdOutlineShoppingCartCheckout className="text-xl lg:text-2xl"></MdOutlineShoppingCartCheckout>
-            </button>
+            <div className=" py-6 flex flex-col gap-y-10">
+              <div className="flex flex-row-reverse gap-x-3">
+                <span>تعداد</span>
+
+                <select
+                  value={qty}
+                  onChange={(e: any) => setqty(Number(e.target.value))}
+                  className="grow outline outline-2 outline-gray-400 rounded-sm"
+                >
+                  {[...Array(5)].map((a, item) => {
+                    return (
+                      <option
+                        key={item}
+                        className="outline outline-2 outline-gray-400 rounded-sm text-right "
+                        value={item + 1}
+                      >
+                        {item + 1}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+
+              <button
+                onClick={additem}
+                className="bg-mainblue flex items-center py-2 px-2 lg:px-4 dark:bg-gray-500 dark:text-white rounded-md hover:shadow-xl duration-300 flex-row-reverse justify-between text-white"
+              >
+                <span className="text-sm">اضاف کردن به سبد خرید</span>
+                <MdOutlineShoppingCartCheckout className=" text-sm lg:text-2xl"></MdOutlineShoppingCartCheckout>
+              </button>
+            </div>
           )}
         </div>
       </div>

@@ -16,7 +16,7 @@ export default function Error() {
     
         items-center 
       
-        lg:max-w-7xl "
+        lg:max-w-7xl"
     >
       <h1 className="text-md lg:text-2xl text-center">
         صفحه مورد نظر یافت نشد

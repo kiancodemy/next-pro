@@ -19,6 +19,7 @@ export interface ProductType {
   name: string;
   image: string;
   brand: string;
+  qty: number;
   category: string;
   description: string[];
   reviews: Review[];
@@ -26,5 +27,9 @@ export interface ProductType {
   numReviews: number;
   price: number;
   color: Color[];
+  createdAt: string;
+  updatedAt: string;
+
+  finalcolor: string;
   countInStock: number;
 }

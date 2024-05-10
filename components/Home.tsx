@@ -41,7 +41,7 @@ export default function Home() {
                   objectFit: "cover",
                 }}
                 src={item.image}
-                alt={item.description[0]}
+                alt="موبایل"
               />
               <Link className=" text-right" href={`/product/${item._id}`}>
                 {item.name}
