@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
-
-import { GoPersonAdd } from "react-icons/go";
 import Link from "next/link";
+import { GoPersonAdd } from "react-icons/go";
+
 import { MdOutlineShoppingCartCheckout } from "react-icons/md";
 import { TiThMenu } from "react-icons/ti";
 import { IoEnterOutline } from "react-icons/io5";
@@ -17,16 +17,19 @@ export default function Header() {
       <main className="bg-white md:max-w-3xl max-w-xs lg:max-w-7xl dark:bg-night dark:text-white rounded-[16px] p-5 lg:p-8 mx-auto flex items-center lg:justify-normal justify-between">
         <div className="flex justify-center gap-2 items-center mr-3">
           <Link
-            href="/login"
+            href="/signin"
             className="px-4 py-2 flex items-center gap-2 bg-mainblue rounded-md text-white"
           >
             <GoPersonAdd className="text-xl text-white"></GoPersonAdd>
             <span> عضویت</span>
           </Link>
-          <button className="flex justify-center hover:bg-mainblue hover:text-white duration-300 gap-4 items-center px-4 py-2 bg-lightblue rounded-md text-mainblue">
+          <Link
+            href="/login"
+            className="flex justify-center hover:bg-mainblue hover:text-white duration-300 gap-4 items-center px-4 py-2 bg-lightblue rounded-md text-mainblue"
+          >
             <IoEnterOutline className="text-2xl"></IoEnterOutline>
             <span> ورود</span>
-          </button>
+          </Link>
         </div>
         <div className="w-[50px] dark:hover:bg-backgray dark:bg-verydark hover:bg-verydark hover:text-backgray duration-300 bg-backgray mr-10 mx-3 hidden lg:flex justify-center items-center text-verydark h-[50px] rounded-full">
           <CiLight className="text-3xl dark:hover:text-verydark  dark:text-white"></CiLight>
@@ -39,12 +42,15 @@ export default function Header() {
           />
           <IoIosSearch className="text-2xl text-"></IoIosSearch>
         </div>
-        <div className="relative lg:flex hidden items-center p-2 rounded-full text-2xl bg-backgray text-darkblue  mx-4  justify-center ">
+        <Link
+          href="/card"
+          className="relative lg:flex hidden items-center p-2 rounded-full text-2xl bg-backgray text-darkblue  mx-4  justify-center "
+        >
           <MdOutlineShoppingCartCheckout></MdOutlineShoppingCartCheckout>
           <span className="absolute  text-sm bg-mainblue text-white p-2 flex justify-center w-8 h-8 items-center -top-[25px] -right-[25px] text-md rounded-md">
             {cartItems.reduce((acc: number, item: any) => acc + item.qty, 0)}
           </span>
-        </div>
+        </Link>
         <h1 className="font-boldblock font-bold hidden lg:block dark:text-white text-verydark font-iran text-4xl">
           فروشگاه من
         </h1>

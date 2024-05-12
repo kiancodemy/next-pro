@@ -1,13 +1,14 @@
-"use client";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { ProductType } from "@/type";
-const isBrowser = typeof window !== "undefined";
-import { cart } from "../cartutils";
-let initialState = { cartItems: [] };
+import { useEffect } from "react";
 
-if (isBrowser && localStorage.getItem("card")) {
-  initialState = JSON.parse(localStorage.getItem("card"));
+import { cart } from "../cartutils";
+let initialState;
+if (typeof window !== "undefined") {
+  initialState = localStorage.getItem("card")
+    ? JSON.parse(localStorage.getItem("card"))
+    : { cartItems: [] };
 }
 
 export const cardSlice = createSlice({

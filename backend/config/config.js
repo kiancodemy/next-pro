@@ -1,4 +1,4 @@
-import { connect } from "../connect/connect.js";
+import connect from "../connect/connect.js";
 import { a } from "../a.js";
 
 import Order from "../models/ordermodel.js";

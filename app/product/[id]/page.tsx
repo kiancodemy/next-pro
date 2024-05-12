@@ -5,12 +5,12 @@ import { useDispatch } from "react-redux";
 import { addItems } from "@/lib/features/productslice";
 import Loading from "@/app/loading";
 import { Color } from "@/type";
-
+import { toast, Zoom } from "react-toastify";
 import Error from "@/app/erro";
 import { useGetbyIdQuery } from "@/lib/api/productslice";
 import { useState } from "react";
 import { FaCheck } from "react-icons/fa";
-
+import "react-toastify/dist/ReactToastify.css";
 import { MdOutlineShoppingCartCheckout } from "react-icons/md";
 import Image from "next/image";
 import { FcApproval } from "react-icons/fc";
@@ -23,6 +23,17 @@ export default function product({ params }: id) {
   const additem = () => {
     if (color) {
       dipatch(addItems({ ...find, qty, finalcolor: color }));
+    } else {
+      toast.error(
+        <span className="font-iran font-bold">
+          رنگ مورد نظر را انتخاب کنید
+        </span>,
+        {
+          position: "top-right",
+          autoClose: 2000,
+          transition: Zoom,
+        }
+      );
     }
   };
   return isLoading ? (
@@ -164,7 +175,7 @@ export default function product({ params }: id) {
                 className="bg-mainblue flex items-center py-2 px-2 lg:px-4 dark:bg-gray-500 dark:text-white rounded-md hover:shadow-xl duration-300 flex-row-reverse justify-between text-white"
               >
                 <span className="text-sm">اضاف کردن به سبد خرید</span>
-                <MdOutlineShoppingCartCheckout className=" text-sm lg:text-2xl"></MdOutlineShoppingCartCheckout>
+                <MdOutlineShoppingCartCheckout className="lg:block hide text-sm lg:text-2xl"></MdOutlineShoppingCartCheckout>
               </button>
             </div>
           )}
