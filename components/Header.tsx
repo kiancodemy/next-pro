@@ -18,17 +18,23 @@ export default function Header() {
         <div className="flex justify-center gap-2 items-center mr-3">
           <Link
             href="/signin"
-            className="px-4 py-2 flex items-center gap-2 bg-mainblue rounded-md text-white"
+            className="px-4  hidden py-2 lg:flex items-center gap-2 bg-mainblue rounded-md text-white"
           >
-            <GoPersonAdd className="text-xl text-white"></GoPersonAdd>
+            <GoPersonAdd className="text-2xl text-white"></GoPersonAdd>
             <span> عضویت</span>
           </Link>
           <Link
             href="/login"
-            className="flex justify-center hover:bg-mainblue hover:text-white duration-300 gap-4 items-center px-4 py-2 bg-lightblue rounded-md text-mainblue"
+            className="flex justify-center hover:bg-mainblue hover:text-white duration-300 gap-x-4 items-center px-4 py-2 bg-lightblue rounded-md text-mainblue"
           >
-            <IoEnterOutline className="text-2xl"></IoEnterOutline>
+            <IoEnterOutline className="lg:text-2xl text-sm"></IoEnterOutline>
             <span> ورود</span>
+          </Link>
+          <Link
+            href="/"
+            className="flex justify-center hover:bg-mainblue hover:text-white duration-300 items-center px-4 py-2 bg-lightblue rounded-md text-mainblue"
+          >
+            <span className="text-sm lg:text-md">صفحه اصلی</span>
           </Link>
         </div>
         <div className="w-[50px] dark:hover:bg-backgray dark:bg-verydark hover:bg-verydark hover:text-backgray duration-300 bg-backgray mr-10 mx-3 hidden lg:flex justify-center items-center text-verydark h-[50px] rounded-full">
@@ -40,14 +46,14 @@ export default function Header() {
             className="bg-backgray text-darkblue text-right grow focus:border-transparent focus:outline-none"
             placeholder="دنبال چی میگردی؟"
           />
-          <IoIosSearch className="text-2xl text-"></IoIosSearch>
+          <IoIosSearch className="text-2xl"></IoIosSearch>
         </div>
         <Link
           href="/card"
           className="relative lg:flex hidden items-center p-2 rounded-full text-2xl bg-backgray text-darkblue  mx-4  justify-center "
         >
           <MdOutlineShoppingCartCheckout></MdOutlineShoppingCartCheckout>
-          <span className="absolute  text-sm bg-mainblue text-white p-2 flex justify-center w-8 h-8 items-center -top-[25px] -right-[25px] text-md rounded-md">
+          <span className="absolute  text-sm bg-mainblue text-white p-1 flex justify-center w-8 h-8 items-center -top-[25px] -right-[25px] text-md rounded-md">
             {cartItems.reduce((acc: number, item: any) => acc + item.qty, 0)}
           </span>
         </Link>

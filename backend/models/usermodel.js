@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+
 import bcrypt from "bcrypt";
 const userschema = new mongoose.Schema(
   {
@@ -9,15 +10,27 @@ const userschema = new mongoose.Schema(
   },
   { timestamps: true }
 );
+
 userschema.pre("save", async function (next) {
-  if (!this.isModified("password")) return next();
+  const user = this;
 
-  this.password = await bcrypt.hash(this.password, 10);
+  if (!user.isModified("password")) return next();
 
-  next();
+  try {
+    const salt = await bcrypt.genSalt(10);
+
+    const hash = await bcrypt.hash(user.password, salt);
+
+    user.password = hash;
+    next();
+  } catch (error) {
+    return next(error);
+  }
 });
-userschema.method("passfiner", async function (pass) {
+
+userschema.method("finder", async function (pass) {
   return await bcrypt.compare(pass, this.password);
 });
+
 const User = mongoose.model("User", userschema);
 export default User;

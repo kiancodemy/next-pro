@@ -1,15 +1,19 @@
+"use client";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { ProductType } from "@/type";
-import { useEffect } from "react";
 
 import { cart } from "../cartutils";
-let initialState;
-if (typeof window !== "undefined") {
-  initialState = localStorage.getItem("card")
-    ? JSON.parse(localStorage.getItem("card"))
-    : { cartItems: [] };
-}
+const initializeState = () => {
+  if (typeof window !== "undefined") {
+    const localStorageItem = localStorage.getItem("card");
+    return localStorageItem ? JSON.parse(localStorageItem) : { cartItems: [] };
+  } else {
+    return { cartItems: [] };
+  }
+};
+
+let initialState = initializeState();
 
 export const cardSlice = createSlice({
   name: "cardslice",
@@ -27,9 +31,15 @@ export const cardSlice = createSlice({
       }
       cart(state);
     },
+    deleteItem: (state: any, action: PayloadAction<ProductType>) => {
+      state.cartItems = state.cartItems.filter(
+        (item: ProductType, key: number) => item._id !== action.payload._id
+      );
+      cart(state);
+    },
   },
 });
 
-export const { addItems } = cardSlice.actions;
+export const { deleteItem, addItems } = cardSlice.actions;
 
 export default cardSlice.reducer;
