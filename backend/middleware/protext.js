@@ -7,9 +7,9 @@ export const protect = async (req, res, next) => {
   if (token) {
     try {
       const find = jwt.verify(token, process.env.SECRETJWT);
-      console.log("find" + find.userid);
+
       const finder = await User.findById(find.userid).select("-password");
-      console.log("finder" + finder);
+
       req.user = finder;
       next();
     } catch (err) {
@@ -18,7 +18,7 @@ export const protect = async (req, res, next) => {
       });
     }
   } else {
-    throw new Error("no");
+    throw new Error("لظفا وارد حساب کاربری خود شوید");
   }
 };
 export const admin = (req, res, next) => {

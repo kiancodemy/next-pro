@@ -37,9 +37,13 @@ export const cardSlice = createSlice({
       );
       cart(state);
     },
+    Adress: (state: any, action: PayloadAction<any>) => {
+      state.address = action.payload;
+      cart(state);
+    },
   },
 });
 
-export const { deleteItem, addItems } = cardSlice.actions;
+export const { deleteItem, addItems, Adress } = cardSlice.actions;
 
 export default cardSlice.reducer;

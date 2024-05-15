@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
-import Signup from "@/components/signup";
+import Shipping from "@/components/Shipping";
 export default function page() {
   return (
     <>
-      <Signup></Signup>
+      <Shipping></Shipping>
     </>
   );
 }

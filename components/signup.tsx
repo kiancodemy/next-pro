@@ -1,12 +1,21 @@
 "use client";
 import React from "react";
+import { RootState } from "@/lib/store";
 import Link from "next/link";
+import { toast, Zoom } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/navigation";
+
 import { IoReturnUpBack } from "react-icons/io5";
 import { useState } from "react";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { IoEyeOffOutline } from "react-icons/io5";
 import { useRef, useEffect } from "react";
+import { credential } from "@/lib/features/auth";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useSignupMutation } from "@/lib/api/authslice";
+import { useSelector, useDispatch } from "react-redux";
+
 //input type
 type Inputs = {
   name: string;
@@ -17,6 +26,29 @@ type Inputs = {
 export default function login() {
   const [showpassword, setshowpassword] = useState<Boolean>(false);
   const smooth = useRef<HTMLFormElement>(null);
+  const dispatch = useDispatch();
+  const [datas] = useSignupMutation();
+  const { userinfo } = useSelector((state: RootState) => state.auth);
+  const router = useRouter();
+
+  // handle funcgtion for when already signup//
+  const ref = useRef(false);
+  useEffect(() => {
+    if (userinfo && ref.current) {
+      toast.warning(
+        <span className="font-iran font-bold">!قبلا ثبت نام کرده اید</span>,
+        {
+          position: "top-right",
+          autoClose: 2000,
+          transition: Zoom,
+        }
+      );
+      router.push("/");
+    }
+    return () => {
+      ref.current = true;
+    };
+  }, [userinfo]);
   useEffect(() => {
     setTimeout(() => {
       const smoothElement = smooth.current;
@@ -30,19 +62,46 @@ export default function login() {
   const {
     register,
     handleSubmit,
+    reset,
 
     formState: { errors },
   } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data);
-    console.log(smooth.current);
+
+  ///handle submit form//
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    try {
+      const info = await datas({ ...data }).unwrap();
+
+      dispatch(credential({ ...info }));
+      toast.success(
+        <span className="font-iran font-bold">
+          ثبت نام شما با موفقیت انچام شد
+        </span>,
+        {
+          position: "top-right",
+          autoClose: 2000,
+          transition: Zoom,
+        }
+      );
+      router.push("/");
+    } catch (err: any) {
+      toast.error(
+        <span className="font-iran font-bold">{err.data.message}</span>,
+        {
+          position: "top-right",
+          autoClose: 2000,
+          transition: Zoom,
+        }
+      );
+      reset();
+    }
   };
-  //main code//
+  //main react code//
   return (
     <form
       ref={smooth}
       onSubmit={handleSubmit(onSubmit)}
-      className="rounded-lg shadow-lg hover:shadow-2xl duration-300 lg:max-w-sm p-6 bg-white dark:bg-night dark:text-white max-w-xs mx-auto mb-20 lg:mb-36 container mt-20"
+      className="rounded-lg shadow-lg  hover:shadow-2xl duration-300 lg:max-w-sm p-6 bg-white dark:bg-night dark:text-white max-w-xs mx-auto mb-20 lg:mb-36 container mt-20"
     >
       <Link href="/">
         <IoReturnUpBack className="text-mainblue text-2xl"></IoReturnUpBack>

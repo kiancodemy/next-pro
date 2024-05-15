@@ -1,10 +1,19 @@
 "use client";
 import React from "react";
-
+import { useLoginMutation } from "@/lib/api/authslice";
 import { useState } from "react";
 import { IoReturnUpBack } from "react-icons/io5";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { IoEyeOffOutline } from "react-icons/io5";
+import { RootState } from "@/lib/store";
+import { useRouter } from "next/navigation";
+import { toast, Zoom } from "react-toastify";
+import { useRef, useEffect } from "react";
+
+import "react-toastify/dist/ReactToastify.css";
+import { credential } from "@/lib/features/auth";
+import { useSelector, useDispatch } from "react-redux";
+
 import { useForm, SubmitHandler } from "react-hook-form";
 import Link from "next/link";
 //input type
@@ -13,7 +22,29 @@ type Inputs = {
   password: string;
 };
 export default function login() {
+  const { userinfo } = useSelector((state: RootState) => state.auth);
   const [showpassword, setshowpassword] = useState<Boolean>(false);
+  const [info] = useLoginMutation();
+  const dispatch = useDispatch();
+  const router = useRouter();
+
+  const ref = useRef(false);
+  useEffect(() => {
+    if (userinfo && ref.current) {
+      toast.warning(
+        <span className="font-iran font-bold">قبلا وارد شده اید</span>,
+        {
+          position: "top-right",
+          autoClose: 2000,
+          transition: Zoom,
+        }
+      );
+      router.push("/");
+    }
+    return () => {
+      ref.current = true;
+    };
+  }, []);
 
   //react-hhok-from//
   const {
@@ -22,7 +53,33 @@ export default function login() {
 
     formState: { errors },
   } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    try {
+      const all = await info({ ...data }).unwrap();
+
+      const g = await dispatch(credential({ ...all }));
+
+      toast.success(
+        <span className="font-iran font-bold">ورود موفقیت آمیز بود</span>,
+        {
+          position: "top-right",
+          autoClose: 2000,
+          transition: Zoom,
+        }
+      );
+      router.push("/");
+    } catch (err: any) {
+      toast.error(
+        <span className="font-iran font-bold">{err.data.message}</span>,
+        {
+          position: "top-right",
+          autoClose: 2000,
+          transition: Zoom,
+        }
+      );
+      reset();
+    }
+  };
   //main code//
   return (
     <form

@@ -23,6 +23,16 @@ export default function product({ params }: id) {
   const additem = () => {
     if (color) {
       dipatch(addItems({ ...find, qty, finalcolor: color }));
+      toast.success(
+        <span className="font-iran font-bold">
+          با موفقیت به سبد کالا اضافه شد
+        </span>,
+        {
+          position: "top-right",
+          autoClose: 2000,
+          transition: Zoom,
+        }
+      );
     } else {
       toast.error(
         <span className="font-iran font-bold">

@@ -6,10 +6,19 @@ import userRouter from "./router/userrouter.js";
 import connect from "./connect/connect.js";
 connect();
 const app = exprees();
-app.use(cors());
+app.use(cookieparser());
+
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
+
 app.use(exprees.json());
 app.use(cookieparser());
 app.use(exprees.urlencoded({ extended: true }));
+
 app.use("/products", productrouter);
 app.use("/users", userRouter);
 

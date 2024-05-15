@@ -129,7 +129,7 @@ export default function card() {
           </div>
           <Link
             className="text-white bg-mainblue hover:bg-darkblue duration-300 py-2 px-6 text-center rounded-md"
-            href="/checkout"
+            href="/shipping"
           >
             ادامه
           </Link>

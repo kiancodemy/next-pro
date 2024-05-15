@@ -33,8 +33,9 @@ export default function RootLayout({
           <div>
             <Header></Header>
             {children}
+
+            <ToastContainer position="bottom-right" limit={1}></ToastContainer>
           </div>
-          <ToastContainer position="bottom-right"></ToastContainer>
         </StoreProvider>
       </body>
     </html>

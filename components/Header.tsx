@@ -2,34 +2,44 @@
 import React from "react";
 import Link from "next/link";
 import { GoPersonAdd } from "react-icons/go";
-
+import Dropdown from "./Dropdown";
 import { MdOutlineShoppingCartCheckout } from "react-icons/md";
 import { TiThMenu } from "react-icons/ti";
 import { IoEnterOutline } from "react-icons/io5";
 import { IoIosSearch } from "react-icons/io";
 import { RootState } from "@/lib/store";
 import { CiLight } from "react-icons/ci";
-import { useSelector } from "react-redux";
+import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 export default function Header() {
   let { cartItems } = useSelector((state: RootState) => state.card);
+  let { userinfo } = useSelector((state: RootState) => state.auth);
+  const [open, setopen] = useState<boolean>(false);
   return (
     <div className="lg:mt-8 mt-6">
       <main className="bg-white md:max-w-3xl max-w-xs lg:max-w-7xl dark:bg-night dark:text-white rounded-[16px] p-5 lg:p-8 mx-auto flex items-center lg:justify-normal justify-between">
-        <div className="flex justify-center gap-2 items-center mr-3">
-          <Link
-            href="/signin"
-            className="px-4  hidden py-2 lg:flex items-center gap-2 bg-mainblue rounded-md text-white"
-          >
-            <GoPersonAdd className="text-2xl text-white"></GoPersonAdd>
-            <span> عضویت</span>
-          </Link>
-          <Link
-            href="/login"
-            className="flex justify-center hover:bg-mainblue hover:text-white duration-300 gap-x-4 items-center px-4 py-2 bg-lightblue rounded-md text-mainblue"
-          >
-            <IoEnterOutline className="lg:text-2xl text-sm"></IoEnterOutline>
-            <span> ورود</span>
-          </Link>
+        <div className="flex justify-center gap-2 items-center">
+          {userinfo ? (
+            <Dropdown>{userinfo.name}</Dropdown>
+          ) : (
+            <>
+              <Link
+                href="/signin"
+                className="px-4  hidden py-2 lg:flex items-center gap-2 bg-mainblue rounded-md text-white"
+              >
+                <GoPersonAdd className="text-2xl text-white"></GoPersonAdd>
+                <span> عضویت</span>
+              </Link>
+              <Link
+                href="/login"
+                className="flex justify-center hover:bg-mainblue hover:text-white duration-300 gap-x-4 items-center px-4 py-2 bg-lightblue rounded-md text-mainblue"
+              >
+                <IoEnterOutline className="lg:text-2xl text-sm"></IoEnterOutline>
+                <span> ورود</span>
+              </Link>
+            </>
+          )}
+
           <Link
             href="/"
             className="flex justify-center hover:bg-mainblue hover:text-white duration-300 items-center px-4 py-2 bg-lightblue rounded-md text-mainblue"
