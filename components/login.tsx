@@ -2,6 +2,7 @@
 import React from "react";
 import { useLoginMutation } from "@/lib/api/authslice";
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { IoReturnUpBack } from "react-icons/io5";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { IoEyeOffOutline } from "react-icons/io5";
@@ -27,6 +28,11 @@ export default function login() {
   const [info] = useLoginMutation();
   const dispatch = useDispatch();
   const router = useRouter();
+  const searchParams = useSearchParams();
+
+  let search: any = searchParams.get("redirect")
+    ? searchParams.get("redirect")
+    : "/";
 
   const ref = useRef(false);
   useEffect(() => {
@@ -39,7 +45,6 @@ export default function login() {
           transition: Zoom,
         }
       );
-      router.push("/");
     }
     return () => {
       ref.current = true;
@@ -50,7 +55,7 @@ export default function login() {
   const {
     register,
     handleSubmit,
-
+    reset,
     formState: { errors },
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
@@ -63,11 +68,11 @@ export default function login() {
         <span className="font-iran font-bold">ورود موفقیت آمیز بود</span>,
         {
           position: "top-right",
-          autoClose: 2000,
+          autoClose: 1500,
           transition: Zoom,
         }
       );
-      router.push("/");
+      router.push(search);
     } catch (err: any) {
       toast.error(
         <span className="font-iran font-bold">{err.data.message}</span>,
@@ -84,7 +89,7 @@ export default function login() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="rounded-lg shadow-lg hover:shadow-2xl duration-300 lg:max-w-sm p-6 bg-white dark:bg-night dark:text-white max-w-xs mx-auto container mt-8"
+      className="rounded-lg  shadow-lg hover:shadow-2xl duration-300 lg:max-w-sm p-6 bg-white dark:bg-night dark:text-white max-w-xs mx-auto container mt-8"
     >
       <Link href="/">
         <IoReturnUpBack className="text-mainblue text-2xl"></IoReturnUpBack>

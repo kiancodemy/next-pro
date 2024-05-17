@@ -13,6 +13,11 @@ export interface Color {
   color: string;
   code: string;
 }
+export interface addresstype {
+  address: string;
+  cityt: string;
+  postalcode: string;
+}
 export interface ProductType {
   _id: string;
   user: string;

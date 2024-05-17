@@ -50,7 +50,7 @@ export default function card() {
                       {items.name}
                     </Link>
                   </div>
-                  <div className="flex justify-end text-sm gap-x-3 flex-row-reverse">
+                  <div className="flex justify-end text-xs lg:text-base gap-x-3 flex-row-reverse">
                     <span>{items.price.toLocaleString()}</span>
                     <span className="hidden lg:block">تومان</span>
                   </div>
@@ -65,7 +65,7 @@ export default function card() {
                         </span>,
                         {
                           position: "top-right",
-                          autoClose: 2000,
+                          autoClose: 1500,
                           transition: Zoom,
                         }
                       );
@@ -90,7 +90,7 @@ export default function card() {
                             </span>,
                             {
                               position: "top-right",
-                              autoClose: 2000,
+                              autoClose: 1500,
                               transition: Zoom,
                             }
                           );
@@ -105,7 +105,7 @@ export default function card() {
           )}
         </div>
 
-        <div className="basis-1/4 py-6 gap-y-4 px-3 flex flex-col border-2 rounded-md shadow-lg border-backgray lg:self-start">
+        <div className="basis-1/4 mt-8 py-6 gap-y-4 px-3 flex flex-col border-2 rounded-md shadow-lg border-backgray lg:self-start">
           <div className="gap-x-3 flex justify-end">
             <span>
               {cartItems.reduce(
@@ -127,12 +127,14 @@ export default function card() {
                 .toLocaleString()}
             </span>
           </div>
-          <Link
-            className="text-white bg-mainblue hover:bg-darkblue duration-300 py-2 px-6 text-center rounded-md"
-            href="/shipping"
-          >
-            ادامه
-          </Link>
+          {cartItems.length !== 0 && (
+            <Link
+              className="text-white bg-mainblue hover:bg-darkblue duration-300 py-2 px-6 text-center rounded-md"
+              href="/shipping"
+            >
+              ادامه
+            </Link>
+          )}
         </div>
       </div>
     </div>

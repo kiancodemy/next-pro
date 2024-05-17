@@ -39,7 +39,7 @@ export default function login() {
         <span className="font-iran font-bold">!قبلا ثبت نام کرده اید</span>,
         {
           position: "top-right",
-          autoClose: 2000,
+          autoClose: 1500,
           transition: Zoom,
         }
       );
@@ -72,7 +72,6 @@ export default function login() {
     try {
       const info = await datas({ ...data }).unwrap();
 
-      dispatch(credential({ ...info }));
       toast.success(
         <span className="font-iran font-bold">
           ثبت نام شما با موفقیت انچام شد
@@ -83,7 +82,7 @@ export default function login() {
           transition: Zoom,
         }
       );
-      router.push("/");
+      router.push("/login");
     } catch (err: any) {
       toast.error(
         <span className="font-iran font-bold">{err.data.message}</span>,

@@ -1,4 +1,4 @@
-const decimal = (number: number) => Math.round((number * 100) / 100).toFixed(2);
+const decimal = (number: number) => Math.round((number * 100) / 100);
 import { ProductType } from "@/type";
 export const cart = (state: any) => {
   state.itemprice = decimal(
@@ -9,10 +9,7 @@ export const cart = (state: any) => {
   );
   state.shipping = state.itemprice >= 1000000 ? 0 : 10;
   state.tax = decimal(Number(state.itemprice * 0.15));
-  state.totalprice = (
-    Number(state.itemprice) +
-    Number(state.shipping) +
-    Number(state.tax)
-  ).toFixed(2);
+  state.totalprice =
+    Number(state.itemprice) + Number(state.shipping) + Number(state.tax);
   return localStorage.setItem("card", JSON.stringify(state));
 };

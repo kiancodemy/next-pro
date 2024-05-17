@@ -25,8 +25,20 @@ const extendedApi = api.injectEndpoints({
         body: id,
       }),
     }),
+    Updateprofile: build.mutation({
+      query: (id) => ({
+        url: `/users/Updateuserprofile`,
+        credentials: "include",
+
+        method: "PUT",
+        body: id,
+      }),
+    }),
   }),
 });
-
-export const { useSignupMutation, useLoginMutation, useLogoutMutation } =
-  extendedApi;
+export const {
+  useSignupMutation,
+  useLoginMutation,
+  useLogoutMutation,
+  useUpdateprofileMutation,
+} = extendedApi;

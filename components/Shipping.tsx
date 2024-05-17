@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useLoginMutation } from "@/lib/api/authslice";
-
+import { protect } from "@/lib/protect/protext";
 import { IoReturnUpBack } from "react-icons/io5";
 import { Adress } from "@/lib/features/productslice";
 import { RootState } from "@/lib/store";
@@ -12,7 +12,7 @@ import { useRef, useEffect } from "react";
 import "react-toastify/dist/ReactToastify.css";
 
 import { useSelector, useDispatch } from "react-redux";
-
+import Process from "./Process";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Link from "next/link";
 //input type
@@ -57,17 +57,19 @@ export default function Shipping() {
           transition: Zoom,
         }
       );
+      router.push("/placeorder");
     } catch (err: any) {
       toast.error(
         <span className="font-iran font-bold">{err.data.message}</span>,
         {
           position: "top-right",
-          autoClose: 2000,
+          autoClose: 1500,
           transition: Zoom,
         }
       );
     }
   };
+  protect();
   //main code//
   return (
     <form
@@ -75,6 +77,7 @@ export default function Shipping() {
       onSubmit={handleSubmit(onSubmit)}
       className="rounded-lg shadow-lg hover:shadow-2xl duration-300 lg:max-w-md p-6 bg-white dark:bg-night dark:text-white max-w-xs mx-auto container my-10 lg:my-20"
     >
+      <Process numbers={1}></Process>
       <Link href="/card">
         <IoReturnUpBack className="text-mainblue text-2xl"></IoReturnUpBack>
       </Link>
