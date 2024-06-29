@@ -1,8 +1,7 @@
-"use client";
-
 import "./globals.css";
+import { Metadata } from "next";
 import localFont from "next/font/local";
-import { ToastContainer } from "react-toastify";
+import Toastify from "@/components/Toastify";
 import Header from "@/components/Header";
 import StoreProvider from "./storeprovider";
 const iran = localFont({
@@ -21,6 +20,13 @@ const iran = localFont({
   variable: "--iran",
 });
 
+export const metadata: Metadata = {
+  title: {
+    template: "%s | فروشگاه انلاین من ",
+    default: '"فروشگاه انلاین من ',
+  },
+  description: "فروشنگاه انلانین اجناس مرغوب",
+};
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -33,8 +39,7 @@ export default function RootLayout({
           <div>
             <Header></Header>
             {children}
-
-            <ToastContainer position="bottom-right" limit={1}></ToastContainer>
+            <Toastify></Toastify>
           </div>
         </StoreProvider>
       </body>

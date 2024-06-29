@@ -1,7 +1,8 @@
 import { Metadata } from "next";
 import React from "react";
 import Home from "@/components/Home";
-
+import Footer from "@/components/Footer";
+import Carousel from "@/components/Carousel";
 export const metadata: Metadata = {
   title: {
     template: "%s | فروشگاه انلاین من ",
@@ -12,7 +13,9 @@ export const metadata: Metadata = {
 export default function page() {
   return (
     <>
+      <Carousel></Carousel>
       <Home></Home>
+      <Footer></Footer>
     </>
   );
 }

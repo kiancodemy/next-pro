@@ -5,7 +5,7 @@ import Link from "next/link";
 import { toast, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
-
+import { Logs } from "@/lib/protect/Logs";
 import { IoReturnUpBack } from "react-icons/io5";
 import { useState } from "react";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
@@ -23,7 +23,7 @@ type Inputs = {
 
   password: string;
 };
-export default function login() {
+export default function Signup() {
   const [showpassword, setshowpassword] = useState<Boolean>(false);
   const smooth = useRef<HTMLFormElement>(null);
   const dispatch = useDispatch();
@@ -34,7 +34,7 @@ export default function login() {
   // handle funcgtion for when already signup//
   const ref = useRef(false);
   useEffect(() => {
-    if (userinfo && ref.current) {
+    if (userinfo) {
       toast.warning(
         <span className="font-iran font-bold">!قبلا ثبت نام کرده اید</span>,
         {
@@ -45,10 +45,7 @@ export default function login() {
       );
       router.push("/");
     }
-    return () => {
-      ref.current = true;
-    };
-  }, [userinfo]);
+  }, []);
   useEffect(() => {
     setTimeout(() => {
       const smoothElement = smooth.current;
@@ -96,6 +93,7 @@ export default function login() {
     }
   };
   //main react code//
+
   return (
     <form
       ref={smooth}

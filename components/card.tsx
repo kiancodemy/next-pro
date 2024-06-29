@@ -11,7 +11,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { deleteItem, addItems } from "@/lib/features/productslice";
 import Link from "next/link";
 
-export default function card() {
+export default function Card() {
   let { cartItems } = useSelector((state: RootState) => state.card);
 
   const dispatch = useDispatch();
@@ -27,9 +27,12 @@ export default function card() {
               هنوز محصولی انتخاب نکردید
             </h1>
           ) : (
-            cartItems.map((items: ProductType, index: number) => {
+            cartItems.map((items: ProductType) => {
               return (
-                <div className="grid-cols-6 lg:p-4 grid gap-x-2">
+                <div
+                  key={items.image}
+                  className="grid-cols-6 lg:p-4 grid gap-x-2"
+                >
                   <Image
                     quality={2}
                     style={{
@@ -73,11 +76,13 @@ export default function card() {
                     className="rounded-md outline outline-2 outline-offset-2 outline-gray-400 self-start"
                     value={items.qty}
                   >
-                    {[...Array(items.countInStock)].map(
-                      (value, key: number) => {
-                        return <option value={key + 1}>{key + 1}</option>;
-                      }
-                    )}
+                    {[...Array(items.countInStock)].map((_, key: number) => {
+                      return (
+                        <option key={key + 1} value={key + 1}>
+                          {key + 1}
+                        </option>
+                      );
+                    })}
                   </select>
                   <div className="flex justify-center">
                     <span className="flex justify-self-center justify-center items-center rounded-md w-8 h-8 bg-gray-100">

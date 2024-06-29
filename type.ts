@@ -1,6 +1,9 @@
-export type id = {
+export type Id = {
   params: { id: string };
 };
+export interface closer {
+  CloseMenue: () => void;
+}
 
 interface Review {
   user: string;

@@ -4,7 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useSelector } from "react-redux";
 
-export const protect = () => {
+export const Protect = () => {
   const { userinfo } = useSelector((state: any) => state.auth);
   const router = useRouter();
   const pathname = usePathname();

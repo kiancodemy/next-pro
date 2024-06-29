@@ -1,55 +1,45 @@
 "use client";
 import React from "react";
-import Link from "next/link";
-import { GoPersonAdd } from "react-icons/go";
+import disableScroll from "disable-scroll";
+import Loginbutton from "./Buttons/Loginbutton";
+import Signupbutton from "./Buttons/Signupbutton";
 import Dropdown from "./Dropdown";
-import { MdOutlineShoppingCartCheckout } from "react-icons/md";
+
+import Nightmode from "./Buttons/Nightmode";
 import { TiThMenu } from "react-icons/ti";
-import { IoEnterOutline } from "react-icons/io5";
+import Cartbutton from "./Buttons/Cartbutton";
+import Mainpage from "./Buttons/Mainpage";
 import { IoIosSearch } from "react-icons/io";
 import { RootState } from "@/lib/store";
-import { CiLight } from "react-icons/ci";
+
 import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import Menue from "./Menue";
 export default function Header() {
-  let { cartItems } = useSelector((state: RootState) => state.card);
   let { userinfo } = useSelector((state: RootState) => state.auth);
+
   const [open, setopen] = useState<boolean>(false);
+  const CloseMenue = () => {
+    setopen(false);
+  };
+
   return (
-    <div className="lg:mt-8 mt-6">
-      <main className="bg-white md:max-w-3xl max-w-xs lg:max-w-7xl dark:bg-night dark:text-white rounded-[16px] p-5 lg:p-8 mx-auto flex items-center lg:justify-normal justify-between">
-        <div className="flex justify-center gap-2 items-center">
+    <div  className="lg:mt-8 mt-6 ">
+      <main className="bg-white md:max-w-3xl max-w-[350px] lg:max-w-7xl dark:bg-night dark:text-white rounded-[16px] p-7 lg:p-8 mx-auto flex items-center lg:justify-normal justify-end">
+        <div className="hidden lg:flex justify-center gap-2 items-center">
           {userinfo ? (
             <Dropdown>{userinfo.name}</Dropdown>
           ) : (
             <>
-              <Link
-                href="/signin"
-                className="px-4  hidden py-2 lg:flex items-center gap-2 bg-mainblue rounded-md text-white"
-              >
-                <GoPersonAdd className="text-2xl text-white"></GoPersonAdd>
-                <span> عضویت</span>
-              </Link>
-              <Link
-                href="/login"
-                className="flex justify-center hover:bg-mainblue hover:text-white duration-300 gap-x-4 items-center px-4 py-2 bg-lightblue rounded-md text-mainblue"
-              >
-                <IoEnterOutline className="lg:text-2xl text-sm"></IoEnterOutline>
-                <span> ورود</span>
-              </Link>
+              <Signupbutton></Signupbutton>
+              <Loginbutton></Loginbutton>
             </>
           )}
 
-          <Link
-            href="/"
-            className="flex justify-center hover:bg-mainblue hover:text-white duration-300 items-center px-4 py-2 bg-lightblue rounded-md text-mainblue"
-          >
-            <span className="text-sm lg:text-md">صفحه اصلی</span>
-          </Link>
+          <Mainpage></Mainpage>
         </div>
-        <div className="w-[50px] dark:hover:bg-backgray dark:bg-verydark hover:bg-verydark hover:text-backgray duration-300 bg-backgray mr-10 mx-3 hidden lg:flex justify-center items-center text-verydark h-[50px] rounded-full">
-          <CiLight className="text-3xl dark:hover:text-verydark  dark:text-white"></CiLight>
-        </div>
+        {open && <Nightmode></Nightmode>}
+
         <div className="lg:flex hidden lg:grow mx-5 gap-2 bg-backgray rounded-[14px] py-2 px-4 text-verydark items-center">
           <input
             type="text"
@@ -58,22 +48,22 @@ export default function Header() {
           />
           <IoIosSearch className="text-2xl"></IoIosSearch>
         </div>
-        <Link
-          href="/card"
-          className="relative hover:shadow-md duration-300 lg:flex hidden items-center p-2 rounded-full text-2xl bg-backgray text-darkblue  mx-4  justify-center "
-        >
-          <MdOutlineShoppingCartCheckout></MdOutlineShoppingCartCheckout>
-          <span className="absolute  text-sm bg-mainblue text-white p-1 flex justify-center w-8 h-8 items-center -top-[25px] -right-[25px] text-md rounded-md">
-            {cartItems.reduce((acc: number, item: any) => acc + item.qty, 0)}
-          </span>
-        </Link>
+
+        <Cartbutton></Cartbutton>
         <h1 className="font-boldblock font-bold hidden lg:block dark:text-white text-verydark font-iran text-4xl">
           فروشگاه من
         </h1>
-        <div className="lg:hidden">
-          <TiThMenu className="text-verydark text-2xl"></TiThMenu>
+        <div
+          onClick={() => {
+            setopen(true);
+            disableScroll.on();
+          }}
+          className="lg:hidden"
+        >
+          <TiThMenu className="text-verydark cursor-pointer text-2xl"></TiThMenu>
         </div>
       </main>
+      {open && <Menue CloseMenue={CloseMenue}></Menue>}
     </div>
   );
 }

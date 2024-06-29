@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import React from "react";
 import { IoReturnUpBack } from "react-icons/io5";
-import { protect } from "@/lib/protect/protext";
+import { Protect } from "@/lib/protect/protext";
 import { useDispatch, useSelector } from "react-redux";
 import { ProductType } from "@/type";
 import { addresstype } from "@/type";
@@ -57,8 +57,8 @@ export default function Placeorder() {
     }
   };
 
-  protect();
-  useEffect(() => {
+  Protect();
+  /*useEffect(() => {
     if (!address?.address) {
       router.push("/shipping");
     } else if (cartItems.length === 0) {
@@ -66,7 +66,7 @@ export default function Placeorder() {
     } else {
       return;
     }
-  }, [address?.address, cartItems]);
+  }, [address?.address, cartItems]);*/
 
   return (
     <div
@@ -88,14 +88,17 @@ export default function Placeorder() {
           <div className="font-bold flex justify-between flex-row-reverse">
             <h1>آدرس</h1>
             <div className="flex flex-row-reverse gap-x-1">
-              <span>,{address?.city}</span>
+              <span>,{address?.cityt}</span>
               <span>,{address?.address}</span>
               <span>{address?.postalcode}</span>
             </div>
           </div>
-          {cartItems.map((items: ProductType, index: number) => {
+          {cartItems.map((items: ProductType) => {
             return (
-              <div className="lg:grid-cols-6 grid-cols-4 p-2  lg:p-4 grid gap-x-2">
+              <div
+                key={items.image}
+                className="lg:grid-cols-6 grid-cols-4 p-2  lg:p-4 grid gap-x-2"
+              >
                 <Image
                   quality={2}
                   style={{

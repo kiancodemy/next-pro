@@ -107,6 +107,7 @@ const Updateuserprofile = async (req, res) => {
 //delete /users/delete/:id
 const deleteuserprofile = async (req, res) => {
   try {
+    const find = await User.findByIdAndDelete(req, params.id);
     res.status(200).json({ data: "delete" });
   } catch (err) {
     res.status(404).json({ data: err.message });

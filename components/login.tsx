@@ -9,6 +9,7 @@ import { IoEyeOffOutline } from "react-icons/io5";
 import { RootState } from "@/lib/store";
 import { useRouter } from "next/navigation";
 import { toast, Zoom } from "react-toastify";
+import { Logs } from "@/lib/protect/Logs";
 import { useRef, useEffect } from "react";
 
 import "react-toastify/dist/ReactToastify.css";
@@ -22,7 +23,7 @@ type Inputs = {
   email: string;
   password: string;
 };
-export default function login() {
+export default function Login() {
   const { userinfo } = useSelector((state: RootState) => state.auth);
   const [showpassword, setshowpassword] = useState<Boolean>(false);
   const [info] = useLoginMutation();
@@ -36,21 +37,18 @@ export default function login() {
 
   const ref = useRef(false);
   useEffect(() => {
-    if (userinfo && ref.current) {
+    if (userinfo) {
       toast.warning(
-        <span className="font-iran font-bold">قبلا وارد شده اید</span>,
+        <span className="font-iran font-bold">!قبلا ورود کرده اید</span>,
         {
           position: "top-right",
-          autoClose: 2000,
+          autoClose: 1500,
           transition: Zoom,
         }
       );
+      router.push("/");
     }
-    return () => {
-      ref.current = true;
-    };
   }, []);
-
   //react-hhok-from//
   const {
     register,
@@ -85,6 +83,7 @@ export default function login() {
       reset();
     }
   };
+
   //main code//
   return (
     <form

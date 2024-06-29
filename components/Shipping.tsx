@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useLoginMutation } from "@/lib/api/authslice";
-import { protect } from "@/lib/protect/protext";
+import { Protect } from "@/lib/protect/protext";
 import { IoReturnUpBack } from "react-icons/io5";
 import { Adress } from "@/lib/features/productslice";
 import { RootState } from "@/lib/store";
@@ -69,7 +69,7 @@ export default function Shipping() {
       );
     }
   };
-  protect();
+  Protect();
   //main code//
   return (
     <form
