@@ -5,6 +5,10 @@ export interface closer {
   CloseMenue: () => void;
 }
 
+export type item = {
+  id: string;
+  image: any;
+};
 interface Review {
   user: string;
   name: string;

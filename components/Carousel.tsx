@@ -8,9 +8,14 @@ import Image from "next/image";
 import wathc from "@/public/images/watch.jpg";
 import del from "@/public/images/del.jpg";
 import { useEffect } from "react";
+import { item } from "@/type";
 import mac from "@/public/images//imac.jpg";
 export default function Carousel() {
-  const items = [{ image: wathc }, { image: del }, { image: mac }];
+  const items: item[] = [
+    { id: "1", image: wathc },
+    { id: "2", image: del },
+    { id: "3", image: mac },
+  ];
   const [index, setindex] = useState<number>(0);
   useEffect(() => {
     const set = setTimeout(() => {
@@ -30,7 +35,7 @@ export default function Carousel() {
       className="  my-2 bg-white md:max-w-3xl max-w-[350px]  mt-8
   lg:max-w-7xl mx-auto p-5 lg:p-8 rounded-md flex flex-col gap-4"
     >
-      <div className="w-[300px] relative mx-auto h-[150px] lg:w-[1100px] lg:h-[350px] bg-greyy rounded-md overflow-hidden">
+      <div className="w-[300px] relative mx-auto h-[150px] lg:w-[1100px] lg:h-[400px] bg-greyy rounded-md overflow-hidden">
         <FaCircleArrowLeft
           onClick={() => {
             index > items.length - 1
@@ -52,16 +57,17 @@ export default function Carousel() {
 
         <Image
           src={items[index].image}
-          fill
-          style={{ objectFit: "cover" }}
+          priority
+          style={{ objectFit: "cover", width: "100%", height: "100%" }}
           alt="kian"
         ></Image>
         <div
           className={`absolute gap-x-6 py-2 px-6 flex left-1/2 -translate-x-2/4 
  bottom-2 z-50 `}
         >
-          {items.map((_, key: number) => (
+          {items.map((itemm: item, key: number) => (
             <GoDotFill
+              key={itemm.id}
               onClick={() => setindex(key)}
               className={`lg:text-2xl text-xl ${
                 index === key ? "text-black" : "text-white cursor-pointer"

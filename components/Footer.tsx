@@ -55,24 +55,24 @@ export default function Footer() {
           );
         })}
       </div>
-      <div className="flex flex-col text-right gap-y-5 lg:flex-row mt-6 justify-between">
-        <div className="flex flex-col gap-y-6 ">
-          <h1 className="lg:text-xl text-sm font-bold text-night">
+      <div className="flex flex-col gap-y-8 lg:flex-row mt-6 justify-between">
+        <div className="flex flex-col rounded-md shadow-lg px-4 py-5 gap-y-6 ">
+          <h1 className="lg:text-lg text-right text-sm font-bold text-night">
             ! با ثبت ایمیل، از تخفیف‌ها با‌خبر شوید
           </h1>
-          <div className="flex text-white  justify-between">
+          <div className="flex text-white justify-between">
             <button className="py-2 rounded-md px-4 bg-greyy text-white hover:shadow-md duration-500 ">
               ثبت
             </button>
 
             <input
               type="text"
-              className="bg-greyy focus:outline-none hover:shadow-md duration-500 rounded-md placeholder:text-white text-night text-right px-2"
+              className="bg-greyy shrink focus:outline-none hover:shadow-md duration-500 rounded-md placeholder:text-white text-night text-right px-2"
               placeholder="ایمیل شما"
             />
           </div>
         </div>
-        <div className="flex flex-col gap-y-6">
+        <div className="flex shadow-md rounded-md px-8 py-2 flex-col gap-y-6">
           <h1 className="text-night lg:text-xl text-sm  font-bold">
             ! با ما در شبکه های اجتماعی همراه باشید
           </h1>
