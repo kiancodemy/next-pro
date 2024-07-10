@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
 
-import "react-toastify/dist/ReactToastify.css";
+
 
 export const AdminProtect = () => {
   const { userinfo } = useSelector((state: any) => state.auth);

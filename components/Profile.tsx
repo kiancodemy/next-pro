@@ -1,22 +1,24 @@
 "use client";
 import React from "react";
-import { IoReturnUpBack } from "react-icons/io5";
+import OrderItem from "./OrderItem";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { useUpdateprofileMutation } from "@/lib/api/authslice";
 import { useState } from "react";
-import { RootState } from "@/lib/store";
+import { useGeAllOrdersQuery } from "@/lib/api/orders";
+
 import { toast, Zoom } from "react-toastify";
-import { useRef, useEffect } from "react";
+
 import { IoEyeOffOutline } from "react-icons/io5";
 import "react-toastify/dist/ReactToastify.css";
 
 import { credential } from "@/lib/features/auth";
 import { useSelector, useDispatch } from "react-redux";
 import { useForm, SubmitHandler } from "react-hook-form";
-import Link from "next/link";
 
 export default function Profile() {
   const dispatch = useDispatch();
+  const { data: info } = useGeAllOrdersQuery("");
+  console.log(info);
   const { userinfo } = useSelector((state: any) => state.auth);
 
   type Inputs = {
@@ -27,7 +29,7 @@ export default function Profile() {
   const {
     register,
     handleSubmit,
-    reset,
+
     formState: { errors },
   } = useForm<Inputs>();
   const [data] = useUpdateprofileMutation();
@@ -58,11 +60,19 @@ export default function Profile() {
   return (
     <form
       onSubmit={handleSubmit(submit)}
-      className=" dark:bg-night bg-white md:max-w-3xl max-w-xs mt-6 mb-20 
+      className=" dark:bg-night container bg-white md:max-w-3xl max-w-xs mt-6 mb-20 
   lg:max-w-7xl mx-auto p-5 lg:p-8 rounded-md flex flex-col gap-4"
     >
       <div className="flex lg:flex-row flex-col lg:gap-x-8 gap-y-4">
-        <div className="basis-3/4 bg-red-500">dgf</div>
+        <div className="basis-3/4 shrink-0 lg:overflow-x-visible overflow-x-scroll flex flex-col grow">
+          {info?.map((items: any) => {
+            return (
+              <div key={items._id}>
+                <OrderItem data={items}></OrderItem>
+              </div>
+            );
+          })}
+        </div>
         <div className="basis-1/4">
           <div className="flex  gap-y-1 flex-col gap-x-3">
             <h1 className="text-right font-bold text-xs lg:text-lg p-2">
@@ -86,7 +96,7 @@ export default function Profile() {
                 {errors.name?.message}
               </h1>
             </div>
-            <div className="flex flex-col  lg:text-base text-sm gap-y-2">
+            <div className="flex flex-col lg:text-base text-sm gap-y-2">
               <h1 className="text-right">ایمیل</h1>
               <input
                 defaultValue={userinfo?.email || ""}

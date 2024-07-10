@@ -12,8 +12,9 @@ const extendedApi = api.injectEndpoints({
     Login: build.mutation({
       query: (info) => ({
         url: `/users/login`,
-        credentials: "include",
+
         method: "POST",
+        credentials: "include",
         body: info,
       }),
     }),

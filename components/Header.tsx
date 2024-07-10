@@ -24,8 +24,8 @@ export default function Header() {
   };
 
   return (
-    <div  className="lg:mt-8 mt-6 ">
-      <main className="bg-white md:max-w-3xl max-w-[350px] lg:max-w-7xl dark:bg-night dark:text-white rounded-[16px] p-7 lg:p-8 mx-auto flex items-center lg:justify-normal justify-end">
+    <div className="lg:mt-8 mt-6 ">
+      <main className="bg-white container md:max-w-3xl max-w-[330px] lg:max-w-7xl dark:bg-night dark:text-white rounded-md px-2 py-3 lg:p-8 mx-auto flex items-center lg:justify-normal justify-end">
         <div className="hidden lg:flex justify-center gap-2 items-center">
           {userinfo ? (
             <Dropdown>{userinfo.name}</Dropdown>

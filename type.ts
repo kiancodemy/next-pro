@@ -45,3 +45,11 @@ export interface ProductType {
   finalcolor: string;
   countInStock: number;
 }
+
+export interface ITEM {
+  name: String;
+  qty: Number;
+  image: String;
+  price: Number;
+  product: String;
+}

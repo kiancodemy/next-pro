@@ -19,8 +19,8 @@ const list = [
 export default function Footer() {
   return (
     <div
-      className=" dark:bg-night my-6 bg-white md:max-w-3xl max-w-[350px]  mt-8
-  lg:max-w-7xl mx-auto p-5 lg:p-8 rounded-md flex flex-col gap-4"
+      className=" dark:bg-night container bg-white md:max-w-3xl max-w-[350px]  mt-8
+      lg:max-w-7xl mx-auto p-5 lg:p-8 rounded-md flex flex-col gap-4"
     >
       <div className="flex justify-between flex-row-reverse  py-1 px-2 items-center">
         <h1 className="text-red-500 font-bold text-xl lg:text-4xl">

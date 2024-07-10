@@ -18,6 +18,7 @@ export default function Card() {
   return (
     <div
       className="md:max-w-3xl max-w-sm mt-8
+      container
   lg:max-w-7xl mx-auto bg-white p-3 lg:p-8 rounded-md"
     >
       <div className="flex flex-col lg:flex-row gap-y-2 lg:gap-x-12">

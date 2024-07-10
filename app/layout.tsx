@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import localFont from "next/font/local";
 import Toastify from "@/components/Toastify";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import StoreProvider from "./storeprovider";
 const iran = localFont({
   src: [
@@ -34,13 +35,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${iran.variable} font-iran dark:bg-night`}>
+      <body
+        className={`${iran.variable} flex flex-col justify-between font-iran dark:bg-night`}
+      >
         <StoreProvider>
-          <div>
-            <Header></Header>
-            {children}
-            <Toastify></Toastify>
-          </div>
+          <Header></Header>
+          {children}
+          <Toastify></Toastify>
+          <Footer></Footer>
         </StoreProvider>
       </body>
     </html>

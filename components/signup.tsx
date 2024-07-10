@@ -2,19 +2,21 @@
 import React from "react";
 import { RootState } from "@/lib/store";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+
 import { toast, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
-import { Logs } from "@/lib/protect/Logs";
+
 import { IoReturnUpBack } from "react-icons/io5";
 import { useState } from "react";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { IoEyeOffOutline } from "react-icons/io5";
 import { useRef, useEffect } from "react";
-import { credential } from "@/lib/features/auth";
+
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useSignupMutation } from "@/lib/api/authslice";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 //input type
 type Inputs = {
@@ -26,26 +28,29 @@ type Inputs = {
 export default function Signup() {
   const [showpassword, setshowpassword] = useState<Boolean>(false);
   const smooth = useRef<HTMLFormElement>(null);
-  const dispatch = useDispatch();
+
   const [datas] = useSignupMutation();
   const { userinfo } = useSelector((state: RootState) => state.auth);
   const router = useRouter();
+  const searchParams = useSearchParams();
 
-  // handle funcgtion for when already signup//
-  const ref = useRef(false);
+  let search: any = searchParams.get("redirect")
+    ? searchParams.get("redirect")
+    : "/";
+
   useEffect(() => {
     if (userinfo) {
-      toast.warning(
-        <span className="font-iran font-bold">!قبلا ثبت نام کرده اید</span>,
-        {
-          position: "top-right",
-          autoClose: 1500,
-          transition: Zoom,
-        }
-      );
-      router.push("/");
+      router.push(`/`);
     }
   }, []);
+
+  // handle funcgtion for when already signup//
+
+  useEffect(() => {
+    if (userinfo) {
+      router.push(`${search}`);
+    }
+  }, [userinfo]);
   useEffect(() => {
     setTimeout(() => {
       const smoothElement = smooth.current;
@@ -67,7 +72,7 @@ export default function Signup() {
   ///handle submit form//
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
-      const info = await datas({ ...data }).unwrap();
+      await datas({ ...data }).unwrap();
 
       toast.success(
         <span className="font-iran font-bold">
@@ -79,7 +84,7 @@ export default function Signup() {
           transition: Zoom,
         }
       );
-      router.push("/login");
+      router.push(`${search !== "/" ? `/login?redirect=${search}` : "/login"}`);
     } catch (err: any) {
       toast.error(
         <span className="font-iran font-bold">{err.data.message}</span>,
@@ -98,7 +103,7 @@ export default function Signup() {
     <form
       ref={smooth}
       onSubmit={handleSubmit(onSubmit)}
-      className="rounded-lg shadow-lg  hover:shadow-2xl duration-300 lg:max-w-sm p-6 bg-white dark:bg-night dark:text-white max-w-xs mx-auto mb-20 lg:mb-36 container mt-20"
+      className="rounded-lg contaienr shadow-lg  hover:shadow-2xl duration-300 lg:max-w-sm p-6 bg-white dark:bg-night dark:text-white max-w-xs mx-auto mb-20 lg:mb-36 container mt-20"
     >
       <Link href="/">
         <IoReturnUpBack className="text-mainblue text-2xl"></IoReturnUpBack>

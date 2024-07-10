@@ -9,7 +9,7 @@ import { IoEyeOffOutline } from "react-icons/io5";
 import { RootState } from "@/lib/store";
 import { useRouter } from "next/navigation";
 import { toast, Zoom } from "react-toastify";
-import { Logs } from "@/lib/protect/Logs";
+
 import { useRef, useEffect } from "react";
 
 import "react-toastify/dist/ReactToastify.css";
@@ -38,17 +38,10 @@ export default function Login() {
   const ref = useRef(false);
   useEffect(() => {
     if (userinfo) {
-      toast.warning(
-        <span className="font-iran font-bold">!قبلا ورود کرده اید</span>,
-        {
-          position: "top-right",
-          autoClose: 1500,
-          transition: Zoom,
-        }
-      );
-      router.push("/");
+      router.push(`${search}`);
     }
-  }, []);
+  }, [userinfo]);
+
   //react-hhok-from//
   const {
     register,
@@ -60,7 +53,7 @@ export default function Login() {
     try {
       const all = await info({ ...data }).unwrap();
 
-      const g = await dispatch(credential({ ...all }));
+      await dispatch(credential({ ...all }));
 
       toast.success(
         <span className="font-iran font-bold">ورود موفقیت آمیز بود</span>,
@@ -70,7 +63,6 @@ export default function Login() {
           transition: Zoom,
         }
       );
-      router.push(search);
     } catch (err: any) {
       toast.error(
         <span className="font-iran font-bold">{err.data.message}</span>,
@@ -88,7 +80,7 @@ export default function Login() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="rounded-lg  shadow-lg hover:shadow-2xl duration-300 lg:max-w-sm p-6 bg-white dark:bg-night dark:text-white max-w-xs mx-auto container mt-8"
+      className="rounded-lg container  shadow-lg hover:shadow-2xl duration-300 lg:max-w-sm p-6 bg-white dark:bg-night dark:text-white max-w-xs mx-auto container mt-8"
     >
       <Link href="/">
         <IoReturnUpBack className="text-mainblue text-2xl"></IoReturnUpBack>
@@ -160,7 +152,12 @@ export default function Login() {
         </button>
         <div className="flex text-sm justify-start gap-x-2 flex-row-reverse">
           <span>حساب ندارید؟</span>
-          <Link href="/signin " className="text-mainblue ">
+          <Link
+            href={`${
+              search !== "/" ? `/signin?redirect=${search}` : "/signin"
+            }`}
+            className="text-mainblue "
+          >
             ثبت نام
           </Link>
         </div>

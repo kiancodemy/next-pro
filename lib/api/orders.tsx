@@ -10,7 +10,25 @@ const extendedApi = api.injectEndpoints({
         body: { ...info },
       }),
     }),
+
+    Getorderbyid: build.query({
+      query: (id) => ({
+        url: `orders/myorderbyid/${id}`,
+        credentials: "include",
+      }),
+    }),
+
+    GeAllOrders: build.query({
+      query: () => ({
+        url: `orders/myorders`,
+        credentials: "include",
+      }),
+    }),
   }),
 });
 
-export const { useCreateorderMutation } = extendedApi;
+export const {
+  useCreateorderMutation,
+  useGetorderbyidQuery,
+  useGeAllOrdersQuery,
+} = extendedApi;

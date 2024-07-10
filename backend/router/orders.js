@@ -4,6 +4,7 @@ import {
   addOrders,
   myOrders,
   paid,
+  MyorderById,
   allorders,
   deliver,
   getOrdersbyid,
@@ -11,6 +12,7 @@ import {
 import { protect, admin } from "../middleware/protext.js";
 router.route("/addorders").post(protect, addOrders);
 router.route("/allorders").get(protect, admin, allorders);
+router.route("/myorderbyid/:id").get(protect, MyorderById);
 router.route("/myorders").get(protect, myOrders);
 router.route("/:id").get(protect, admin, getOrdersbyid);
 router.route("/:id/paid").put(protect, paid);

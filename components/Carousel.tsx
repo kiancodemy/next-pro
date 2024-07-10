@@ -32,8 +32,8 @@ export default function Carousel() {
   }, [index]);
   return (
     <div
-      className="  my-2 bg-white md:max-w-3xl max-w-[350px]  mt-8
-  lg:max-w-7xl mx-auto p-5 lg:p-8 rounded-md flex flex-col gap-4"
+      className="z-10 my-2 bg-white md:max-w-3xl max-w-[350px]  mt-8
+      lg:max-w-7xl mx-auto p-5 lg:p-8 rounded-md flex flex-col gap-4"
     >
       <div className="w-[300px] relative mx-auto h-[150px] lg:w-[1100px] lg:h-[400px] bg-greyy rounded-md overflow-hidden">
         <FaCircleArrowLeft
@@ -42,7 +42,7 @@ export default function Carousel() {
               ? setindex((prev) => prev + 1)
               : setindex(0);
           }}
-          className=" h-[30px] w-[30px] lg:w-[40px] z-50 hover:
+          className="h-[30px] w-[30px] lg:w-[40px] hover:
         shadow-md duration-500 cursor-pointer  lg:h-[40px] rounded-full absolute -translate-y-2/4 left-2 inset-y-1/2 bg-white"
         ></FaCircleArrowLeft>
         <FaArrowCircleRight
@@ -51,7 +51,7 @@ export default function Carousel() {
               ? setindex((prev) => prev - 1)
               : setindex(items.length - 1);
           }}
-          className=" h-[30px] w-[30px] lg:w-[40px] z-50 hover:
+          className=" h-[30px] w-[30px] lg:w-[40px] hover:
         shadow-md duration-500 cursor-pointer lg:h-[40px] rounded-full absolute -translate-y-2/4 right-2 inset-y-1/2 bg-white"
         ></FaArrowCircleRight>
 
@@ -63,7 +63,7 @@ export default function Carousel() {
         ></Image>
         <div
           className={`absolute gap-x-6 py-2 px-6 flex left-1/2 -translate-x-2/4 
- bottom-2 z-50 `}
+          bottom-2 z-10`}
         >
           {items.map((itemm: item, key: number) => (
             <GoDotFill

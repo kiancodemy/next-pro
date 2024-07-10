@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+
 import React from "react";
 import { IoReturnUpBack } from "react-icons/io5";
 import { Protect } from "@/lib/protect/protext";
@@ -8,6 +8,8 @@ import { ProductType } from "@/type";
 import { addresstype } from "@/type";
 import { clearCard } from "@/lib/features/productslice";
 import Image from "next/image";
+import { useEffect } from "react";
+
 import Link from "next/link";
 import { useCreateorderMutation } from "@/lib/api/orders";
 import { RootState } from "@/lib/store";
@@ -27,7 +29,7 @@ export default function Placeorder() {
 
   const confirmOrder = async () => {
     try {
-      await data({
+      const { data: info } = await data({
         orderItems: card.cartItems,
         shippingAddress: card.address,
         shippingPrice: card.shipping,
@@ -35,7 +37,10 @@ export default function Placeorder() {
         itemPrice: card.itemprice,
         taxPrice: card.tax,
       }).unwrap();
-      await dispatch(clearCard());
+
+      router.push(`/orders/${info._id}`);
+
+      /*dispatch(clearCard());*/
 
       toast.success(
         <span className="font-iran font-bold">با موفقیت انجنام شد</span>,
@@ -58,19 +63,15 @@ export default function Placeorder() {
   };
 
   Protect();
-  /*useEffect(() => {
+  useEffect(() => {
     if (!address?.address) {
       router.push("/shipping");
-    } else if (cartItems.length === 0) {
-      router.push("/");
-    } else {
-      return;
     }
-  }, [address?.address, cartItems]);*/
+  }, [address?.address]);
 
   return (
     <div
-      className="md:max-w-3xl max-w-sm mt-8
+      className="md:max-w-3xl container max-w-sm mt-8
       mb-10
       
   lg:max-w-7xl mx-auto bg-white p-3 lg:p-8 rounded-md"

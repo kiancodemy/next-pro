@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import React from "react";
 import Home from "@/components/Home";
-import Footer from "@/components/Footer";
+
 import Carousel from "@/components/Carousel";
 export const metadata: Metadata = {
   title: {
@@ -15,7 +15,7 @@ export default function page() {
     <>
       <Carousel></Carousel>
       <Home></Home>
-      <Footer></Footer>
+     
     </>
   );
 }

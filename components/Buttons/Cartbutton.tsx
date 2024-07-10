@@ -13,7 +13,7 @@ export default function Cartbutton() {
         className="relative hover:shadow-md duration-300 lg:flex  items-center p-2 rounded-full text-2xl bg-backgray text-darkblue  mx-4  justify-center "
       >
         <MdOutlineShoppingCartCheckout></MdOutlineShoppingCartCheckout>
-        <span className="absolute  text-sm bg-mainblue text-white p-1 flex justify-center w-8 h-8 items-center -top-[25px] -right-[25px] text-md rounded-md">
+        <span className="absolute  text-sm bg-mainblue text-white p-1 flex justify-center w-6 h-6 lg:w-8 lg:h-8 items-center -top-[10px] lg:-top-[25px] -right-[15px] lg:-right-[25px] text-md rounded-md">
           {cartItems.reduce((acc: number, item: any) => acc + item.qty, 0)}
         </span>
       </Link>

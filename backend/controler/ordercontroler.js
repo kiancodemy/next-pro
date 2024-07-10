@@ -88,3 +88,12 @@ export const allorders = async (req, res) => {
     res.status(404).json({ message: err.message });
   }
 };
+
+export const MyorderById = async (req, res) => {
+  try {
+    const find = await Order.findById(req.params.id);
+    res.status(200).json(find);
+  } catch (err) {
+    res.status(401).json({ message: err.message });
+  }
+};
