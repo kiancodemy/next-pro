@@ -4,7 +4,7 @@ import base from "../constant";
 
 export const api = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: base }),
+  tagTypes: ["Getbyid"],
 
   endpoints: () => ({}),
-  
 });

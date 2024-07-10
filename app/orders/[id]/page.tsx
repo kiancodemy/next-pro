@@ -1,19 +1,47 @@
 "use client";
+import { toast, Zoom } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import React from "react";
 type OrderType = {
   id: String;
 };
-
-import OrderItem from "@/components/OrderItem";
+import { useRouter } from "next/navigation";
+import Profileorder from "@/components/Profileorder";
 import Loading from "@/app/loading";
-import { useGetorderbyidQuery } from "@/lib/api/orders";
+import { useGetorderbyidQuery, useSetToPaidMutation } from "@/lib/api/orders";
 export default function page({ params }: { params: OrderType }) {
+  const router = useRouter();
   const { data, isLoading } = useGetorderbyidQuery(params.id);
+  const [updater] = useSetToPaidMutation();
+  const update = async () => {
+    try {
+      await updater(params.id);
+
+      toast.success(
+        <span className="font-iran font-bold">پرداخت موفقیت آمیز بود</span>,
+        {
+          position: "top-right",
+          autoClose: 1500,
+          transition: Zoom,
+        }
+      );
+      router.push("/profile");
+    } catch (err) {
+      toast.error(
+        <span className="font-iran font-bold">پرداخت موفقیت آمیز نبود</span>,
+        {
+          position: "top-right",
+          autoClose: 1500,
+          transition: Zoom,
+        }
+      );
+    }
+  };
 
   return (
     <div
-      className=" dark:bg-night bg-white md:max-w-3xl max-w-[350px]  mt-8
+      className=" dark:bg-night container  bg-white md:max-w-3xl max-w-[350px]  mt-8
   lg:max-w-7xl mx-auto p-5 lg:p-8 rounded-md flex flex-col gap-4"
     >
       {isLoading ? (
@@ -21,7 +49,7 @@ export default function page({ params }: { params: OrderType }) {
       ) : (
         <div className="flex lg:flex-row flex-col gap-y-6 gap-x-2 ">
           <div className="grow flex flex-col basis-[60%]">
-            <OrderItem data={data}></OrderItem>
+            <Profileorder data={data}></Profileorder>
           </div>
           <div className="basis-[30%] py-6 px-2 shadow-md flex flex-col gap-y-6 rounded-md">
             <div className="flex justify-between px-2">
@@ -52,7 +80,10 @@ export default function page({ params }: { params: OrderType }) {
               </h1>
               <h1>هرینه کل</h1>
             </div>
-            <button className="bg-mainblue hover:bg-verydark duration-500 text-white rounded-md py-2 px-6">
+            <button
+              onClick={update}
+              className="bg-mainblue hover:bg-verydark duration-500 text-white rounded-md py-2 px-6"
+            >
               پرداخت
             </button>
           </div>

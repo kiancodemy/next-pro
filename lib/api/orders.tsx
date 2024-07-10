@@ -10,6 +10,24 @@ const extendedApi = api.injectEndpoints({
         body: { ...info },
       }),
     }),
+    Emailsernder: build.mutation({
+      query: (info) => ({
+        url: `/email/emaisender`,
+        credentials: "include",
+
+        method: "POST",
+        body: { ...info },
+      }),
+    }),
+    SetToPaid: build.mutation({
+      query: (info) => ({
+        url: `/orders/${info}/paid`,
+        credentials: "include",
+
+        method: "PUT",
+      }),
+      invalidatesTags: ["Getbyid"],
+    }),
 
     Getorderbyid: build.query({
       query: (id) => ({
@@ -23,6 +41,7 @@ const extendedApi = api.injectEndpoints({
         url: `orders/myorders`,
         credentials: "include",
       }),
+      providesTags: ["Getbyid"],
     }),
   }),
 });
@@ -31,4 +50,6 @@ export const {
   useCreateorderMutation,
   useGetorderbyidQuery,
   useGeAllOrdersQuery,
+  useSetToPaidMutation,
+  useEmailsernderMutation,
 } = extendedApi;

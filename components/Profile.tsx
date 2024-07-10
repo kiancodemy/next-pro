@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import OrderItem from "./OrderItem";
+import Profileorder from "./Profileorder";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { useUpdateprofileMutation } from "@/lib/api/authslice";
 import { useState } from "react";
@@ -64,22 +64,22 @@ export default function Profile() {
   lg:max-w-7xl mx-auto p-5 lg:p-8 rounded-md flex flex-col gap-4"
     >
       <div className="flex lg:flex-row flex-col lg:gap-x-8 gap-y-4">
-        <div className="basis-3/4 shrink-0 lg:overflow-x-visible overflow-x-scroll flex flex-col grow">
+        <div className="basis-3/4 lg:overflow-x-visible overflow-x-scroll flex flex-col grow">
           {info?.map((items: any) => {
             return (
               <div key={items._id}>
-                <OrderItem data={items}></OrderItem>
+                <Profileorder data={items}></Profileorder>
               </div>
             );
           })}
         </div>
-        <div className="basis-1/4">
+        <div className="basis-1/4 lg:self-start shadow-md px-3 py-8 rounded-md">
           <div className="flex  gap-y-1 flex-col gap-x-3">
             <h1 className="text-right font-bold text-xs lg:text-lg p-2">
               به روز رسانی اطلاعات
             </h1>
-            <div className="flex flex-col text-sm gap-y-2">
-              <h1 className="text-right text-xs lg:text-base">اسم</h1>
+            <div className="flex flex-col text-sm gap-y-6">
+              <h1 className="text-right text-xs lg:text-base">نام</h1>
 
               <input
                 defaultValue={userinfo?.name || ""}

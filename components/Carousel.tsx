@@ -32,10 +32,10 @@ export default function Carousel() {
   }, [index]);
   return (
     <div
-      className="z-10 my-2 bg-white md:max-w-3xl max-w-[350px]  mt-8
-      lg:max-w-7xl mx-auto p-5 lg:p-8 rounded-md flex flex-col gap-4"
+      className="z-10 my-2 container md:max-w-3xl max-w-[350px] mt-8
+      lg:max-w-7xl mx-auto p-5 items-center lg:p-8 rounded-md flex flex-col gap-4"
     >
-      <div className="w-[300px] relative mx-auto h-[150px] lg:w-[1100px] lg:h-[400px] bg-greyy rounded-md overflow-hidden">
+      <div className="w-[330px] relative h-[160px] lg:w-[950px] lg:h-[500px] bg-greyy rounded-md overflow-hidden">
         <FaCircleArrowLeft
           onClick={() => {
             index > items.length - 1

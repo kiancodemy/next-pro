@@ -41,9 +41,9 @@ export default function RootLayout({
         <StoreProvider>
           <Header></Header>
           {children}
-          <Toastify></Toastify>
-          <Footer></Footer>
+          <Footer></Footer>f
         </StoreProvider>
+        <Toastify></Toastify>
       </body>
     </html>
   );

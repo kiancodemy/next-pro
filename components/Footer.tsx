@@ -5,11 +5,16 @@ import { FaRegCreditCard } from "react-icons/fa";
 import { FaCalendarDay } from "react-icons/fa6";
 import { IoBagCheckSharp } from "react-icons/io5";
 import { MdArrowUpward } from "react-icons/md";
+import { useState } from "react";
+import { toast, Zoom } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 
 import { FaInstagram } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io";
 import { SiAparat } from "react-icons/si";
 import { FaTwitter } from "react-icons/fa6";
+import { useEmailsernderMutation } from "@/lib/api/orders";
 const list = [
   { name: "امکان تحویل اکسپرس", logo: <FaShippingFast></FaShippingFast> },
   { name: "امکان پرداخت در محل ", logo: <FaRegCreditCard></FaRegCreditCard> },
@@ -17,6 +22,45 @@ const list = [
   { name: "ضمانت اصل بودن کالا", logo: <IoBagCheckSharp></IoBagCheckSharp> },
 ];
 export default function Footer() {
+  const [email, setemail] = useState("");
+  const [data] = useEmailsernderMutation();
+
+  const submit = async () => {
+    try {
+      if (!email) {
+        toast.error(
+          <span className="font-iran font-bold">ایمیل خود را وارد کنید</span>,
+          {
+            position: "top-right",
+            autoClose: 1500,
+            transition: Zoom,
+          }
+        );
+        return true;
+      }
+
+      await data({ email: email }).unwrap();
+      toast.success(
+        <span className="font-iran font-bold">با موفقیت ثبت شد</span>,
+        {
+          position: "top-right",
+          autoClose: 1500,
+          transition: Zoom,
+        }
+      );
+      setemail("");
+    } catch (err: any) {
+      toast.error(
+        <span className="font-iran font-bold">{err.data.message}</span>,
+        {
+          position: "top-right",
+          autoClose: 1500,
+          transition: Zoom,
+        }
+      );
+      setemail("");
+    }
+  };
   return (
     <div
       className=" dark:bg-night container bg-white md:max-w-3xl max-w-[350px]  mt-8
@@ -61,12 +105,17 @@ export default function Footer() {
             ! با ثبت ایمیل، از تخفیف‌ها با‌خبر شوید
           </h1>
           <div className="flex text-white justify-between">
-            <button className="py-2 rounded-md px-4 bg-greyy text-white hover:shadow-md duration-500 ">
+            <button
+              onClick={submit}
+              className="py-2 rounded-md px-4 bg-greyy text-white hover:shadow-md duration-500 "
+            >
               ثبت
             </button>
 
             <input
               type="text"
+              value={email}
+              onChange={(e) => setemail(e.target.value)}
               className="bg-greyy shrink focus:outline-none hover:shadow-md duration-500 rounded-md placeholder:text-white text-night text-right px-2"
               placeholder="ایمیل شما"
             />
