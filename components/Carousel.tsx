@@ -35,14 +35,14 @@ export default function Carousel() {
       className="z-10 my-2 container md:max-w-3xl max-w-[350px] mt-8
       lg:max-w-7xl mx-auto p-5 items-center lg:p-8 rounded-md flex flex-col gap-4"
     >
-      <div className="w-[330px] relative h-[160px] lg:w-[950px] lg:h-[500px] bg-greyy rounded-md overflow-hidden">
+      <div className="w-[330px]  bg-red-400  relative h-[160px] lg:w-[950px] lg:h-[500px] rounded-md overflow-hidden">
         <FaCircleArrowLeft
           onClick={() => {
             index > items.length - 1
               ? setindex((prev) => prev + 1)
               : setindex(0);
           }}
-          className="h-[30px] w-[30px] lg:w-[40px] hover:
+          className="h-[30px] dark:text-black w-[30px] lg:w-[40px] hover:
         shadow-md duration-500 cursor-pointer  lg:h-[40px] rounded-full absolute -translate-y-2/4 left-2 inset-y-1/2 bg-white"
         ></FaCircleArrowLeft>
         <FaArrowCircleRight
@@ -52,7 +52,7 @@ export default function Carousel() {
               : setindex(items.length - 1);
           }}
           className=" h-[30px] w-[30px] lg:w-[40px] hover:
-        shadow-md duration-500 cursor-pointer lg:h-[40px] rounded-full absolute -translate-y-2/4 right-2 inset-y-1/2 bg-white"
+        shadow-md duration-500 dark:text-black cursor-pointer lg:h-[40px] rounded-full absolute -translate-y-2/4 right-2 inset-y-1/2 bg-white"
         ></FaArrowCircleRight>
 
         <Image

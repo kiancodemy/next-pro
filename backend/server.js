@@ -6,6 +6,7 @@ import userRouter from "./router/userrouter.js";
 import connect from "./connect/connect.js";
 import orderRout from "./router/orders.js";
 import email from "./router/emairouter.js";
+import router from "./router/questions.js";
 connect();
 const app = exprees();
 app.use(cookieparser());
@@ -25,6 +26,7 @@ app.use("/products", productrouter);
 app.use("/users", userRouter);
 app.use("/orders", orderRout);
 app.use("/email", email);
+app.use("/question", router);
 
 const port = process.env.PORT || 8000;
 

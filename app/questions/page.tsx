@@ -1,9 +1,9 @@
 import React from "react";
-import Signup from "@/components/signup";
+import Questions from "@/components/Questions";
 export default function page() {
   return (
     <>
-      <Signup></Signup>
+      <Questions></Questions>
     </>
   );
 }

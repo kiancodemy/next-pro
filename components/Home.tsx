@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import Loading from "@/app/loading";
 import { ProductType } from "@/type";
-
 import { useGetproductsQuery } from "@/lib/api/productslice";
 export default function Home() {
   const { data: item, isLoading, isError } = useGetproductsQuery("products");
@@ -16,7 +15,6 @@ export default function Home() {
     <Error></Error>
   ) : (
     <div
-      id="kian"
       className=" dark:bg-night container bg-white md:max-w-3xl max-w-[350px]  mt-8
       lg:max-w-7xl mx-auto p-5 lg:p-8 rounded-md flex flex-col gap-4"
     >

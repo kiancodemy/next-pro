@@ -5,6 +5,7 @@ import Toastify from "@/components/Toastify";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import StoreProvider from "./storeprovider";
+import Providers from "@/lib/features/Providers";
 const iran = localFont({
   src: [
     {
@@ -34,15 +35,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html suppressHydrationWarning lang="en">
       <body
-        className={`${iran.variable} flex flex-col justify-between font-iran dark:bg-night`}
+        className={`${iran.variable}  flex flex-col justify-between font-iran dark:bg-night`}
       >
-        <StoreProvider>
-          <Header></Header>
-          {children}
-          <Footer></Footer>f
-        </StoreProvider>
+        <Providers>
+          <StoreProvider>
+            <Header></Header>
+            {children}
+            <Footer></Footer>
+          </StoreProvider>
+        </Providers>
+
         <Toastify></Toastify>
       </body>
     </html>

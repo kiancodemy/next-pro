@@ -40,7 +40,7 @@ export default function Placeorder() {
 
       router.push(`/orders/${info._id}`);
 
-      /*dispatch(clearCard());*/
+      dispatch(clearCard());
 
       toast.success(
         <span className="font-iran font-bold">با موفقیت انجنام شد</span>,
@@ -71,7 +71,7 @@ export default function Placeorder() {
 
   return (
     <div
-      className="md:max-w-3xl container max-w-sm mt-8
+      className="md:max-w-3xl dark:bg-night dark:text-white container max-w-sm mt-8
       mb-10
       
   lg:max-w-7xl mx-auto bg-white p-3 lg:p-8 rounded-md"

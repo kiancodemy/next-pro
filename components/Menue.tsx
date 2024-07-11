@@ -5,11 +5,11 @@ import Mainpage from "./Buttons/Mainpage";
 import disableScroll from "disable-scroll";
 import Profile from "./Buttons/Profile";
 import Nightmode from "./Buttons/Nightmode";
-import Cartbutton from "./Buttons/Cartbutton";
+
 import { RxCross1 } from "react-icons/rx";
 import { closer } from "@/type";
 import Signupbutton from "./Buttons/Signupbutton";
-import { UseSelector, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { RootState } from "@/lib/store";
 export default function Menue({ CloseMenue }: closer) {
   const { userinfo } = useSelector((state: RootState) => state.auth);

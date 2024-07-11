@@ -80,7 +80,7 @@ export default function Login() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="rounded-lg container  shadow-lg hover:shadow-2xl duration-300 lg:max-w-sm p-6 bg-white dark:bg-night dark:text-white max-w-xs mx-auto container mt-8"
+      className="rounded-lg dark:bg-night  outline outline-white outline-2  shadow-lg hover:shadow-2xl duration-300 lg:max-w-sm p-6 bg-white   max-w-xs mx-auto container mt-8"
     >
       <Link href="/">
         <IoReturnUpBack className="text-mainblue text-2xl"></IoReturnUpBack>
@@ -103,7 +103,7 @@ export default function Login() {
                 message: "ایمیل معتبر نیست",
               },
             })}
-            className="bg-backgray focus:outline-mainblue focus:outline-1 rounded-md py-2 text-right px-2"
+            className="bg-backgray dark:text-black focus:outline-mainblue focus:outline-1 rounded-md py-2 text-right px-2"
             type="text"
           />
           <h1 className="text-red-500 text-sm text-right py-1 ">
@@ -125,7 +125,7 @@ export default function Login() {
                   message: "! پر کردن این فیلد الزامی است ",
                 },
               })}
-              className=" focus:outline-mainblue bg-backgray py-2 px-2 focus:outline-1 rounded-md  text-right "
+              className="dark:text-black focus:outline-mainblue bg-backgray py-2 px-2 focus:outline-1 rounded-md  text-right "
               type={showpassword ? "text" : "password"}
             />
             {showpassword ? (

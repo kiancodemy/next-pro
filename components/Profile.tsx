@@ -5,7 +5,7 @@ import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { useUpdateprofileMutation } from "@/lib/api/authslice";
 import { useState } from "react";
 import { useGeAllOrdersQuery } from "@/lib/api/orders";
-
+import { Protect } from "@/lib/protect/protext";
 import { toast, Zoom } from "react-toastify";
 
 import { IoEyeOffOutline } from "react-icons/io5";
@@ -16,9 +16,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 export default function Profile() {
+  Protect();
   const dispatch = useDispatch();
   const { data: info } = useGeAllOrdersQuery("");
-  console.log(info);
+
   const { userinfo } = useSelector((state: any) => state.auth);
 
   type Inputs = {

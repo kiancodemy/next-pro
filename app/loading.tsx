@@ -2,7 +2,7 @@ import React from "react";
 
 export default function loading() {
   return (
-    <div className="text-3xl bg-backgray bg-opacity-20 w-full h-svh flex justify-center items-center">
+    <div className="text-3xl dark:bg-night bg-backgray bg-opacity-20 w-full h-svh flex justify-center items-center">
       <svg
         aria-hidden="true"
         className="w-14 h-14 inline  text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"

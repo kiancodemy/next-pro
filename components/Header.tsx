@@ -15,8 +15,9 @@ import { RootState } from "@/lib/store";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import Menue from "./Menue";
+
 export default function Header() {
-  let { userinfo } = useSelector((state: RootState) => state.auth);
+  let { userinfo }: any = useSelector((state: RootState) => state.auth);
 
   const [open, setopen] = useState<boolean>(false);
   const CloseMenue = () => {
@@ -24,11 +25,11 @@ export default function Header() {
   };
 
   return (
-    <div className="lg:mt-8 mt-6 ">
+    <div id="kian" className="lg:mt-8 mt-6 ">
       <main className="bg-white container md:max-w-3xl max-w-[330px] lg:max-w-7xl dark:bg-night dark:text-white rounded-md px-2 py-3 lg:p-8 mx-auto flex items-center lg:justify-normal justify-end">
         <div className="hidden lg:flex justify-center gap-2 items-center">
           {userinfo ? (
-            <Dropdown>{userinfo.name}</Dropdown>
+            <Dropdown>{userinfo?.name}</Dropdown>
           ) : (
             <>
               <Signupbutton></Signupbutton>
@@ -38,7 +39,10 @@ export default function Header() {
 
           <Mainpage></Mainpage>
         </div>
-        {open && <Nightmode></Nightmode>}
+
+        <span className="hidden lg:block">
+          <Nightmode></Nightmode>
+        </span>
 
         <div className="lg:flex hidden lg:grow mx-5 gap-2 bg-backgray rounded-[14px] py-2 px-4 text-verydark items-center">
           <input

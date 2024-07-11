@@ -67,7 +67,7 @@ export default function Footer() {
       lg:max-w-7xl mx-auto p-5 lg:p-8 rounded-md flex flex-col gap-4"
     >
       <div className="flex justify-between flex-row-reverse  py-1 px-2 items-center">
-        <h1 className="text-red-500 font-bold text-xl lg:text-4xl">
+        <h1 className="text-red-500 dark:text-white font-bold text-xl lg:text-4xl">
           فروشگاه من
         </h1>
 
@@ -84,14 +84,14 @@ export default function Footer() {
           <MdArrowUpward></MdArrowUpward>
         </button>
       </div>
-      <div className="grid py-3 gap-y-6 mt-6 grid-cols-2 lg:grid-cols-4 ">
+      <div className="grid dark:bg-gray-600 rounded-md  py-4 gap-y-6 mt-6 grid-cols-2 lg:grid-cols-4 ">
         {list.map((item: any) => {
           return (
             <div
               className="flex flex-col gap-y-3 justify-center items-center"
               key={item.name}
             >
-              <span className="text-2xl lg:text-2xl text-night">
+              <span className=" dark:text-white text-2xl lg:text-2xl text-night">
                 {item.logo}
               </span>
               <span>{item.name}</span>
@@ -100,14 +100,14 @@ export default function Footer() {
         })}
       </div>
       <div className="flex flex-col gap-y-8 lg:flex-row mt-6 justify-between">
-        <div className="flex flex-col rounded-md shadow-lg px-4 py-5 gap-y-6 ">
+        <div className="flex dark:bg-white dark:text-night flex-col rounded-md shadow-lg px-4 py-5 gap-y-6 ">
           <h1 className="lg:text-lg text-right text-sm font-bold text-night">
             ! با ثبت ایمیل، از تخفیف‌ها با‌خبر شوید
           </h1>
           <div className="flex text-white justify-between">
             <button
               onClick={submit}
-              className="py-2 rounded-md px-4 bg-greyy text-white hover:shadow-md duration-500 "
+              className="py-2 rounded-md px-4 dark:bg-gray-600 bg-greyy text-white hover:shadow-md duration-500 "
             >
               ثبت
             </button>
@@ -116,12 +116,12 @@ export default function Footer() {
               type="text"
               value={email}
               onChange={(e) => setemail(e.target.value)}
-              className="bg-greyy shrink focus:outline-none hover:shadow-md duration-500 rounded-md placeholder:text-white text-night text-right px-2"
+              className="bg-greyy dark:bg-gray-600 shrink focus:outline-none hover:shadow-md duration-500 rounded-md placeholder:text-white text-night text-right px-2"
               placeholder="ایمیل شما"
             />
           </div>
         </div>
-        <div className="flex shadow-md rounded-md px-8 py-2 flex-col gap-y-6">
+        <div className="flex dark:bg-white dark:text-night shadow-md rounded-md px-8 py-4 flex-col gap-y-6">
           <h1 className="text-night lg:text-xl text-sm  font-bold">
             ! با ما در شبکه های اجتماعی همراه باشید
           </h1>

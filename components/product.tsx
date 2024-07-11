@@ -163,7 +163,7 @@ export default function Product({ id }: { id: string }) {
                 <select
                   value={qty}
                   onChange={(e: any) => setqty(Number(e.target.value))}
-                  className="grow outline outline-2 outline-gray-400 rounded-sm"
+                  className="grow dark:bg-night dark:text-white outline outline-2 outline-gray-400 rounded-sm"
                 >
                   {[...Array(5)].map((_, item) => {
                     return (

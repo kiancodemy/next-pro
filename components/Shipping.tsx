@@ -75,7 +75,7 @@ export default function Shipping() {
     <form
       ref={smooth}
       onSubmit={handleSubmit(onSubmit)}
-      className="rounded-lg shadow-lg hover:shadow-2xl duration-300 lg:max-w-md p-6 bg-white dark:bg-night dark:text-white max-w-xs mx-auto container my-10 lg:my-20"
+      className="rounded-lg dark:border-2 dark:border-white shadow-lg hover:shadow-2xl duration-300 lg:max-w-md p-6 bg-white dark:bg-night dark:text-white max-w-xs mx-auto container my-10 lg:my-20"
     >
       <Process numbers={1}></Process>
       <Link href="/card">
@@ -96,7 +96,7 @@ export default function Shipping() {
                 message: "! پر کردن این فیلد الزامی است ",
               },
             })}
-            className="bg-backgray focus:outline-mainblue focus:outline-1 rounded-md py-2 text-right px-2"
+            className="bg-backgray dark:text-night focus:outline-mainblue focus:outline-1 rounded-md py-2 text-right px-2"
             type="text"
           />
           <h1 className="text-red-500 text-sm text-right py-1 ">
@@ -113,7 +113,7 @@ export default function Shipping() {
                 message: "! پر کردن این فیلد الزامی است ",
               },
             })}
-            className=" focus:outline-mainblue bg-backgray py-2 px-2 focus:outline-1 rounded-md  text-right "
+            className=" focus:outline-mainblue dark:text-night bg-backgray py-2 px-2 focus:outline-1 rounded-md  text-right "
             type="text"
           />
 
@@ -131,7 +131,7 @@ export default function Shipping() {
                 message: "! پر کردن این فیلد الزامی است ",
               },
             })}
-            className=" focus:outline-mainblue bg-backgray py-2 px-2 focus:outline-1 rounded-md  text-right "
+            className=" focus:outline-mainblue dark:text-night bg-backgray py-2 px-2 focus:outline-1 rounded-md  text-right "
             type="text"
           />
 

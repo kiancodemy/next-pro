@@ -15,7 +15,7 @@ let initialState = initializeState();
 
 export const authSlice = createSlice({
   name: "authslice",
-  initialState,
+  initialState: initialState,
   reducers: {
     credential: (state: any, action: PayloadAction<any>) => {
       state.userinfo = action.payload;

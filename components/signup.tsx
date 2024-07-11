@@ -103,16 +103,16 @@ export default function Signup() {
     <form
       ref={smooth}
       onSubmit={handleSubmit(onSubmit)}
-      className="rounded-lg contaienr shadow-lg  hover:shadow-2xl duration-300 lg:max-w-sm p-6 bg-white dark:bg-night dark:text-white max-w-xs mx-auto mb-20 lg:mb-36 container mt-20"
+      className="rounded-lg outline outline-white outline-2 contaienr shadow-lg  hover:shadow-2xl duration-300 lg:max-w-sm p-6 bg-white dark:bg-night dark:text-white max-w-xs mx-auto mb-20 lg:mb-36 container mt-20"
     >
       <Link href="/">
         <IoReturnUpBack className="text-mainblue text-2xl"></IoReturnUpBack>
       </Link>
-      <h1 className="text-center font-bold text-2xl text-verydark">
+      <h1 className="text-center dark:text-white font-bold text-2xl text-verydark">
         !سلام خوش آمدید
       </h1>
 
-      <div className="flex my-6 gap-y-1 flex-col gap-x-3">
+      <div className="flex  my-6 gap-y-1 flex-col gap-x-3">
         <div className="flex flex-col text-sm gap-y-2">
           <h1 className="text-right">اسم</h1>
           <input
@@ -122,7 +122,7 @@ export default function Signup() {
                 message: "! پر کردن این فیلد الزامی است ",
               },
             })}
-            className="bg-backgray focus:outline-mainblue focus:outline-1 rounded-md py-2 text-right px-2"
+            className="bg-backgray dark:text-black focus:outline-mainblue focus:outline-1 rounded-md py-2 text-right px-2"
             type="text"
           />
           <h1 className="text-red-500 text-sm text-right py-1 ">
@@ -142,7 +142,7 @@ export default function Signup() {
                 message: "ایمیل معتبر نیست",
               },
             })}
-            className="bg-backgray focus:outline-mainblue focus:outline-1 rounded-md py-2 text-right px-2"
+            className="bg-backgray dark:text-black focus:outline-mainblue focus:outline-1 rounded-md py-2 text-right px-2"
             type="text"
           />
           <h1 className="text-red-500 text-sm text-right py-1 ">
@@ -160,7 +160,7 @@ export default function Signup() {
                   message: "! پر کردن این فیلد الزامی است ",
                 },
               })}
-              className=" focus:outline-mainblue bg-backgray py-2 px-2 focus:outline-1 rounded-md  text-right "
+              className=" focus:outline-mainblue dark:text-black bg-backgray py-2 px-2 focus:outline-1 rounded-md  text-right "
               type={showpassword ? "text" : "password"}
             />
             {showpassword ? (

@@ -11,7 +11,10 @@ const extendedApi = api.injectEndpoints({
       query: (id) => ({ url: `/products/${id}` }),
       keepUnusedDataFor: 5,
     }),
+    Getquestions: build.query({
+      query: () => ({ url: '/question/Qall' }),
+    }),
   }),
 });
 
-export const { useGetproductsQuery, useGetbyIdQuery } = extendedApi;
+export const { useGetproductsQuery, useGetbyIdQuery,useGetquestionsQuery } = extendedApi;
