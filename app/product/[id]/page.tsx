@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { Id } from "@/type";
 
-import MyProduct from "@/components/Product";
+import MyProduct from "@/components/ProductByid";
 
 export async function generateStaticParams() {
   const { data } = await axios.get(

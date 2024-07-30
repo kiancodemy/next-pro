@@ -6,7 +6,7 @@ import Loading from "@/app/loading";
 import { Color } from "@/type";
 import { toast, Zoom } from "react-toastify";
 import Error from "@/app/erro";
-import { useGetbyIdQuery, useGetproductsQuery } from "@/lib/api/productslice";
+import { useGetbyIdQuery } from "@/lib/api/productslice";
 import { useState } from "react";
 import { FaCheck } from "react-icons/fa";
 import "react-toastify/dist/ReactToastify.css";
