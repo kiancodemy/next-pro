@@ -1,9 +1,9 @@
 import React from "react";
-import Cart from "@/components/Card";
+import Card from "@/components/Mycard";
 export default function page() {
   return (
     <>
-      <Cart></Cart>
+      <Card></Card>
     </>
   );
 }
