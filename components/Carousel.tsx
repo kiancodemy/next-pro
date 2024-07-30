@@ -11,7 +11,7 @@ import { useEffect } from "react";
 import { useMemo } from "react";
 import { item } from "@/type";
 import mac from "@/public/images//imac.jpg";
-export default function Carousel() {
+export default function carousel() {
   const items = useMemo(
     () => [
       { id: "1", image: wathc },

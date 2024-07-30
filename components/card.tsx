@@ -11,7 +11,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { deleteItem, addItems } from "@/lib/features/productslice";
 import Link from "next/link";
 
-export default function Card() {
+export default function card() {
   let { cartItems } = useSelector((state: RootState) => state.card);
 
   const dispatch = useDispatch();
