@@ -104,7 +104,7 @@ export default function Footer() {
           <h1 className="lg:text-lg text-right text-sm font-bold text-night">
             ! با ثبت ایمیل، از تخفیف‌ها با‌خبر شوید
           </h1>
-          <div className="flex text-white justify-between">
+          <div className="flex text-white gap-x-2">
             <button
               onClick={submit}
               className="py-2 rounded-md px-3 dark:bg-gray-600 bg-greyy text-white hover:shadow-md duration-500 "
