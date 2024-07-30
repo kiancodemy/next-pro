@@ -30,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="fa">
       <body
         className={`${iran.variable}  flex flex-col justify-between font-iran dark:bg-night`}
       >
