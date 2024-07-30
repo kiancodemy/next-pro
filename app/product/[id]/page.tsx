@@ -13,7 +13,7 @@ export async function generateStaticParams() {
     id: post._id,
   }));
 }
-export default function Page({ params }: Id) {
+export default function page({ params }: Id) {
   const { id } = params;
   return (
     <div>

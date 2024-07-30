@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "@/components/Card";
-export default function Page() {
+export default function page() {
   return (
     <div>
       <Card></Card>
