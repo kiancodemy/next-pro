@@ -13,11 +13,6 @@ const iran = localFont({
       weight: "400",
       style: "normal",
     },
-    {
-      path: "../public/fonts/IRANYekanXFaNum-Bold.woff2",
-      weight: "700",
-      style: "bold",
-    },
   ],
   variable: "--iran",
 });
