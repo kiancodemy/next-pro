@@ -63,7 +63,7 @@ export default function Footer() {
   };
   return (
     <div
-      className=" dark:bg-night container bg-white md:max-w-3xl max-w-[350px]  mt-8
+      className=" dark:bg-night container bg-white md:max-w-3xl max-w-[340px]  mt-8
       lg:max-w-7xl mx-auto p-5 lg:p-8 rounded-md flex flex-col gap-4"
     >
       <div className="flex justify-between flex-row-reverse  py-1 px-2 items-center">
@@ -100,14 +100,14 @@ export default function Footer() {
         })}
       </div>
       <div className="flex flex-col gap-y-8 lg:flex-row mt-6 justify-between">
-        <div className="flex  dark:bg-white dark:text-night flex-col rounded-md shadow-lg px-4 py-5 gap-y-6 ">
+        <div className="flex  dark:bg-white dark:text-night flex-col rounded-md shadow-lg px-3 py-5 gap-y-6 ">
           <h1 className="lg:text-lg text-right text-sm font-bold text-night">
             ! با ثبت ایمیل، از تخفیف‌ها با‌خبر شوید
           </h1>
-          <div className="flex text-white gap-x-6">
+          <div className="flex text-white justify-between">
             <button
               onClick={submit}
-              className="py-2 grow  rounded-md px-4 dark:bg-gray-600 bg-greyy text-white hover:shadow-md duration-500 "
+              className="py-2 rounded-md px-3 dark:bg-gray-600 bg-greyy text-white hover:shadow-md duration-500 "
             >
               ثبت
             </button>
