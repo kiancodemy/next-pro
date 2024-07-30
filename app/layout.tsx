@@ -10,7 +10,7 @@ import Providers from "@/lib/features/Providers";
 const iran = localFont({
   src: [
     {
-      path: "../public/fonts/fonts/iran.woff",
+      path: "../public/fonts/iran.woff",
       weight: "400",
       style: "normal",
     },
