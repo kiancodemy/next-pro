@@ -5,11 +5,12 @@ import Toastify from "@/components/Toastify";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import StoreProvider from "./storeprovider";
+
 import Providers from "@/lib/features/Providers";
 const iran = localFont({
   src: [
     {
-      path: "../public/fonts/IRANYekanXFaNum-regular.woff2",
+      path: "../public/fonts/fonts/iran.woff",
       weight: "400",
       style: "normal",
     },
