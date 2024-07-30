@@ -35,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html suppressHydrationWarning lang="en">
+    <html lang="en">
       <body
         className={`${iran.variable}  flex flex-col justify-between font-iran dark:bg-night`}
       >

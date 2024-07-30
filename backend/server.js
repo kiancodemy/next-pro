@@ -7,13 +7,16 @@ import connect from "./connect/connect.js";
 import orderRout from "./router/orders.js";
 import email from "./router/emairouter.js";
 import router from "./router/questions.js";
+import dotev from "dotenv";
+
+dotev.config();
 connect();
 const app = exprees();
 app.use(cookieparser());
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: process.env.ADDRESS,
     credentials: true,
   })
 );

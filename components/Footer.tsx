@@ -84,7 +84,7 @@ export default function Footer() {
           <MdArrowUpward></MdArrowUpward>
         </button>
       </div>
-      <div className="grid dark:bg-gray-600 rounded-md  py-4 gap-y-6 mt-6 grid-cols-2 lg:grid-cols-4 ">
+      <div className="grid rounded-md py-4 gap-y-6 mt-6 grid-cols-2 lg:grid-cols-4 ">
         {list.map((item: any) => {
           return (
             <div

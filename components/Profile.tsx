@@ -90,7 +90,7 @@ export default function Profile() {
                     message: "! پر کردن این فیلد الزامی است ",
                   },
                 })}
-                className="bg-backgray focus:outline-mainblue focus:outline-1 rounded-md py-2 text-right px-2"
+                className="bg-backgray dark:text-black focus:outline-mainblue focus:outline-1 rounded-md py-2 text-right px-2"
                 type="text"
               />
               <h1 className="text-red-500 text-xs lg:text-base text-right py-1 ">
@@ -111,7 +111,7 @@ export default function Profile() {
                     message: "ایمیل معتبر نیست",
                   },
                 })}
-                className="bg-backgray text-xs lg:text-base focus:outline-mainblue focus:outline-1 rounded-md py-2 text-right px-2"
+                className="bg-backgray dark:text-black text-xs lg:text-base focus:outline-mainblue focus:outline-1 rounded-md py-2 text-right px-2"
                 type="text"
               />
               <h1 className="text-red-500 lg:text-base text-sm text-right py-1 ">
@@ -124,7 +124,7 @@ export default function Profile() {
               <div className=" rounded-lg relative flex flex-col ">
                 <input
                   {...register("password")}
-                  className="text-xs lg:text-base focus:outline-mainblue bg-backgray py-2 px-2 focus:outline-1 rounded-md  text-right "
+                  className="text-xs dark:text-black lg:text-base focus:outline-mainblue bg-backgray py-2 px-2 focus:outline-1 rounded-md  text-right "
                   type={showpassword ? "text" : "password"}
                 />
                 {showpassword ? (

@@ -9,6 +9,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      animation: {
+        w: "w 0.3s linear",
+      },
+      keyframes: {
+        w: {
+          "0%": { transform: "translateX(15rem)" },
+          "100%": { transform: "translateX(0)" },
+        },
+      },
       fontFamily: {
         iran: ["var(--iran)"],
       },

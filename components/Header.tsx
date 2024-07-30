@@ -26,7 +26,7 @@ export default function Header() {
 
   return (
     <div id="kian" className="lg:mt-8 mt-6 ">
-      <main className="bg-white container md:max-w-3xl max-w-[330px] lg:max-w-7xl dark:bg-night dark:text-white rounded-md px-2 py-3 lg:p-8 mx-auto flex items-center lg:justify-normal justify-end">
+      <main className="bg-white dark:shadow-sm dark:shadow-white  container md:max-w-3xl max-w-[330px] lg:max-w-7xl dark:bg-night dark:text-white rounded-md px-2 py-3 lg:p-8 mx-auto flex items-center lg:justify-normal justify-end">
         <div className="hidden lg:flex justify-center gap-2 items-center">
           {userinfo ? (
             <Dropdown>{userinfo?.name}</Dropdown>
@@ -64,7 +64,7 @@ export default function Header() {
           }}
           className="lg:hidden"
         >
-          <TiThMenu className="text-verydark cursor-pointer text-2xl"></TiThMenu>
+          <TiThMenu className="text-verydark dark:text-white cursor-pointer text-2xl"></TiThMenu>
         </div>
       </main>
       {open && <Menue CloseMenue={CloseMenue}></Menue>}

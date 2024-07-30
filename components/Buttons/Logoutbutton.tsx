@@ -27,7 +27,7 @@ export default function Logoutbutton() {
     <>
       <button
         onClick={exit}
-        className="hover:text-black text-sm py-1 duration-300"
+        className="hover:text-black dark:text-black text-sm py-1 duration-300"
       >
         خروج
       </button>

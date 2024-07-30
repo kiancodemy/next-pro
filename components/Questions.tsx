@@ -10,7 +10,7 @@ type main = { name: string; answer: string };
 export default function Questions() {
   const { data } = useGetquestionsQuery("");
   return (
-    <div className="dark:bg-night bg-white  dark:text-white lg:shadow-md lg:text-white shadow-mainblue gap-y-3 my-6 container  flex flex-col lg:px-6 py-16 rounded-md mx-auto lg:max-w-7xl md:max-w-4xl max-w-[340px]">
+    <div className="dark:bg-night bg-white  dark:text-white lg:shadow-md lg:text-white shadow-mainblue gap-y-3 my-6 container  flex flex-col lg:px-6 py-10 rounded-md mx-auto lg:max-w-7xl md:max-w-4xl max-w-[340px]">
       <div className="flex  text-night flex-row-reverse font-bold justify-center mb-8 items-center gap-x-1 text-3xl lg:text-4xl">
         <h1>سوالات </h1>
         <FaQuestion></FaQuestion>

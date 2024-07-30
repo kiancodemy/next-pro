@@ -19,9 +19,9 @@ export default function Menue({ CloseMenue }: closer) {
         CloseMenue();
         disableScroll.off();
       }}
-      className="fixed z-50 left-0 top-0 right-0 bottom-0  dark:bg-backgray bg-night bg-opacity-80 flex justify-end items-stretch gap-y-3 "
+      className="fixed overflow-hidden z-50 left-0 top-0 right-0 bottom-0   bg-night bg-opacity-80 flex justify-end items-stretch gap-y-3 "
     >
-      <div className="flex z-80 bg-night w-[280px] flex-col p-4 gap-y-7">
+      <div className="flex animate-w z-80 bg-night w-[280px] flex-col p-4 gap-y-7">
         <div className="flex mt-3 px-2 items-center justify-end">
           <RxCross1
             onClick={() => {

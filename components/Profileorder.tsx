@@ -8,12 +8,12 @@ import Image from "next/image";
 export default function Profileorder({ data }: { data: any }) {
   const router = useRouter();
   return (
-    <div className="flex-col gap-y-3 gap-x-3">
+    <div className="flex-col py-4 gap-y-3 gap-x-3">
       {data.orderItems.map((item: ITEM) => {
         return (
           <div
             key={`${item.product}`}
-            className="flex items-center container py-4  justify-around gap-x-4 flex-row"
+            className="flex items-center border-b-black border-b-2 dark:border-white container py-4  justify-around gap-x-4 flex-row"
           >
             <div className="lg:h-[120px] shrink-0 h-[60px]">
               <Image
@@ -33,11 +33,11 @@ export default function Profileorder({ data }: { data: any }) {
             <h1 className="text-nowrap border-r-2 px-3 border-gray-300">
               {item.name}
             </h1>
-            <h1 className="border-r-2 px-3 border-gray-300 flex flex-row  gap-xborder-r-2">
+            <h1 className="px-3 border-gray-300 flex flex-row  gap-x-2 border-r-2">
               <span>تومان</span>
               <span>{item.price.toString()}</span>
             </h1>
-            <h1 className="border-r-2 px-3 border-gray-300 flex gap-x-border-r-2 ">
+            <h1 className=" px-3 border-gray-300 flex gap-x-2 border-r-2 ">
               <span>{item.qty.toString()}</span>
               <span>*</span>
 
