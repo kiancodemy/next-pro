@@ -100,14 +100,14 @@ export default function Footer() {
         })}
       </div>
       <div className="flex flex-col gap-y-8 lg:flex-row mt-6 justify-between">
-        <div className="flex dark:bg-white dark:text-night flex-col rounded-md shadow-lg px-4 py-5 gap-y-6 ">
+        <div className="flex  dark:bg-white dark:text-night flex-col rounded-md shadow-lg px-4 py-5 gap-y-6 ">
           <h1 className="lg:text-lg text-right text-sm font-bold text-night">
             ! با ثبت ایمیل، از تخفیف‌ها با‌خبر شوید
           </h1>
-          <div className="flex text-white justify-between">
+          <div className="flex text-white gap-x-6">
             <button
               onClick={submit}
-              className="py-2 rounded-md px-4 dark:bg-gray-600 bg-greyy text-white hover:shadow-md duration-500 "
+              className="py-2 grow  rounded-md px-4 dark:bg-gray-600 bg-greyy text-white hover:shadow-md duration-500 "
             >
               ثبت
             </button>
@@ -116,7 +116,7 @@ export default function Footer() {
               type="text"
               value={email}
               onChange={(e) => setemail(e.target.value)}
-              className="bg-greyy dark:bg-gray-600 shrink focus:outline-none hover:shadow-md duration-500 rounded-md placeholder:text-white text-night text-right px-2"
+              className="bg-greyy  dark:bg-gray-600  focus:outline-none hover:shadow-md duration-500 rounded-md placeholder:text-white text-night text-right px-2"
               placeholder="ایمیل شما"
             />
           </div>

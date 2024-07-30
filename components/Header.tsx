@@ -40,7 +40,7 @@ export default function Header() {
           <Mainpage></Mainpage>
         </div>
 
-        <span className="hidden lg:block">
+        <span className="hidden cursor-pointer lg:block">
           <Nightmode></Nightmode>
         </span>
 

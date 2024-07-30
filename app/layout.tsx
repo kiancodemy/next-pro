@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import localFont from "next/font/local";
 import Toastify from "@/components/Toastify";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+
 import StoreProvider from "./storeprovider";
 
 import Providers from "@/lib/features/Providers";
@@ -39,7 +39,7 @@ export default function RootLayout({
           <StoreProvider>
             <Header></Header>
             {children}
-            <Footer></Footer>
+          
           </StoreProvider>
         </Providers>
 

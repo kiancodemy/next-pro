@@ -42,20 +42,20 @@ export default function Carousel() {
       <div className="w-[330px]  bg-red-400  relative h-[160px] lg:w-[950px] lg:h-[500px] rounded-md overflow-hidden">
         <FaCircleArrowLeft
           onClick={() => {
-            index > items.length - 1
-              ? setindex((prev) => prev + 1)
-              : setindex(0);
+            index > 0
+              ? setindex((prev) => prev - 1)
+              : setindex(items.length - 1);
           }}
           className="h-[30px] dark:text-black w-[30px] lg:w-[40px] hover:
         shadow-md duration-500 cursor-pointer  lg:h-[40px] rounded-full absolute -translate-y-2/4 left-2 inset-y-1/2 bg-white"
         ></FaCircleArrowLeft>
         <FaArrowCircleRight
           onClick={() => {
-            index > 0
-              ? setindex((prev) => prev - 1)
-              : setindex(items.length - 1);
+            index < items.length - 1
+              ? setindex((prev) => prev + 1)
+              : setindex(0);
           }}
-          className=" h-[30px] w-[30px] lg:w-[40px] hover:
+          className=" bg-red h-[30px] w-[30px] lg:w-[40px] hover:
         shadow-md duration-500 dark:text-black cursor-pointer lg:h-[40px] rounded-full absolute -translate-y-2/4 right-2 inset-y-1/2 bg-white"
         ></FaArrowCircleRight>
 

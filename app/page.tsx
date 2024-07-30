@@ -3,6 +3,7 @@ import React from "react";
 import Home from "@/components/Home";
 import Introquestions from "@/components/Introquestions";
 import Carousel from "@/components/Carousel";
+import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: {
     template: "%s | فروشگاه انلاین من ",
@@ -16,6 +17,7 @@ export default function page() {
       <Carousel></Carousel>
       <Home></Home>
       <Introquestions></Introquestions>
+      <Footer></Footer>
     </div>
   );
 }

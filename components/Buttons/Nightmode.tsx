@@ -11,7 +11,7 @@ export default function Nightmode() {
     setmaute(true);
   }, []);
   return (
-    <div className="w-[50px] dark:bg-night  dark:hover:bg-backgray flex   hover:bg-verydark hover:text-backgray duration-300 bg-backgray mr-10 mx-3 justify-center  lg:flex items-center text-verydark h-[50px] rounded-full">
+    <div className="w-[50px]  dark:bg-night  dark:hover:bg-backgray flex   hover:bg-verydark hover:text-backgray duration-300 bg-backgray mr-10 mx-3 justify-center  lg:flex items-center text-verydark h-[50px] rounded-full">
       {maute && (
         <CiLight
           onClick={() => {
