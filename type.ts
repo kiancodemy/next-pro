@@ -53,3 +53,7 @@ export interface ITEM {
   price: Number;
   product: String;
 }
+
+export type OrderType = {
+  id: String;
+};

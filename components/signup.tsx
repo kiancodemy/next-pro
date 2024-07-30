@@ -42,7 +42,7 @@ export default function Signup() {
     if (userinfo) {
       router.push(`/`);
     }
-  }, []);
+  }, [router, userinfo]);
 
   // handle funcgtion for when already signup//
 
@@ -50,7 +50,7 @@ export default function Signup() {
     if (userinfo) {
       router.push(`${search}`);
     }
-  }, [userinfo]);
+  }, [userinfo, search, router]);
   useEffect(() => {
     setTimeout(() => {
       const smoothElement = smooth.current;

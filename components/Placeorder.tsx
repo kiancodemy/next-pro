@@ -67,7 +67,7 @@ export default function Placeorder() {
     if (!address?.address) {
       router.push("/shipping");
     }
-  }, [address?.address]);
+  }, [address, router]);
 
   return (
     <div

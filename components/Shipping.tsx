@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { useLoginMutation } from "@/lib/api/authslice";
+
 import { Protect } from "@/lib/protect/protext";
 import { IoReturnUpBack } from "react-icons/io5";
 import { Adress } from "@/lib/features/productslice";
@@ -17,7 +17,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import Link from "next/link";
 //input type
 type Inputs = {
-  address: string;
+  address:string
   city: string;
   postalcode: string;
 };

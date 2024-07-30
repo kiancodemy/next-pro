@@ -6,10 +6,10 @@ import { IoPersonOutline } from "react-icons/io5";
 import { useSelector } from "react-redux";
 import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
-import { useLogoutMutation } from "@/lib/api/authslice";
+//import { useLogoutMutation } from "@/lib/api/authslice";
 export default function Dropdown() {
   const [open, setopen] = useState<boolean>(false);
-  const [data, { isLoading: isUpdating }] = useLogoutMutation();
+  //const [data, { isLoading: isUpdating }] = useLogoutMutation();
   const { userinfo } = useSelector((state: any) => state.auth);
 
   return (

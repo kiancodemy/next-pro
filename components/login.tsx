@@ -40,7 +40,7 @@ export default function Login() {
     if (userinfo) {
       router.push(`${search}`);
     }
-  }, [userinfo]);
+  }, [userinfo, router, search]);
 
   //react-hhok-from//
   const {

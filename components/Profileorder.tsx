@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { ITEM } from "@/type";
 import { FaCheck } from "react-icons/fa6";

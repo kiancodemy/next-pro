@@ -1,9 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-import base from "../constant";
-
 export const api = createApi({
-  baseQuery: fetchBaseQuery({ baseUrl: base }),
+  baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_ANALYTICS_ID }),
   tagTypes: ["Getbyid"],
 
   endpoints: () => ({}),

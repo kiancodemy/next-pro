@@ -7,8 +7,8 @@
     "dev": "next dev",
     "delete": "nodemon backend/config/config.js --delete ",
     "add": "nodemon backend/config/config.js --add ",
-    "starter": "nodemon backend/server.js",
     "both": "concurrently \"npm run starter\" \"npm run dev\"",
+    "starter": "npm install && npm run build",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

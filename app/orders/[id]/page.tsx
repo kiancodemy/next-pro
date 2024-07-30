@@ -1,16 +1,15 @@
 "use client";
+import React from "react";
+
 import { toast, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import React from "react";
-type OrderType = {
-  id: String;
-};
 import { useRouter } from "next/navigation";
 import Profileorder from "@/components/Profileorder";
+import { OrderType } from "@/type";
 import Loading from "@/app/loading";
 import { useGetorderbyidQuery, useSetToPaidMutation } from "@/lib/api/orders";
-export default function page({ params }: { params: OrderType }) {
+export default function Page({ params }: { params: OrderType }) {
   const router = useRouter();
   const { data, isLoading } = useGetorderbyidQuery(params.id);
   const [updater] = useSetToPaidMutation();
