@@ -1,5 +1,9 @@
 import React from "react";
 import Login from "@/components/login";
 export default function page() {
-  return <Login></Login>;
+  return (
+    <div className="md:py-20 py-10">
+      <Login></Login>
+    </div>
+  );
 }

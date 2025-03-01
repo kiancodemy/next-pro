@@ -4,6 +4,9 @@ import Home from "@/components/Home";
 import Introquestions from "@/components/Introquestions";
 import Carousel from "@/components/Carousel";
 import Footer from "@/components/Footer";
+import { Suspense } from "react";
+import Loading from "./loading";
+
 export const metadata: Metadata = {
   title: {
     template: "%s | فروشگاه انلاین من ",
@@ -15,9 +18,17 @@ export default function page() {
   return (
     <div>
       <Carousel></Carousel>
-      <Home></Home>
+      <Suspense
+        fallback={
+          <div className="relative">
+            <Loading />
+          </div>
+        }
+      >
+        <Home></Home>
+      </Suspense>
+
       <Introquestions></Introquestions>
-      <Footer></Footer>
     </div>
   );
 }

@@ -1,15 +1,20 @@
 import React from "react";
-import axios from "axios";
+import { ProductType } from "@/type";
 import { Id } from "@/type";
+import { notFound } from "next/navigation";
 
 import MyProduct from "@/components/ProductByid";
 
 export async function generateStaticParams() {
-  const { data } = await axios.get(
+  const getall = await fetch(
     `${process.env.NEXT_PUBLIC_ANALYTICS_ID}/products`
   );
+  if (!getall.ok) {
+    notFound();
+  }
+  const data = await getall.json();
 
-  return data.map((post: any) => ({
+  return data.map((post: ProductType) => ({
     id: post._id,
   }));
 }

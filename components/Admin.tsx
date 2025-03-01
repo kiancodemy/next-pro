@@ -4,7 +4,7 @@ import React from "react";
 import { IoPersonOutline } from "react-icons/io5";
 
 import { useSelector } from "react-redux";
-import "react-toastify/dist/ReactToastify.css";
+
 import { useState } from "react";
 //import { useLogoutMutation } from "@/lib/api/authslice";
 export default function Dropdown() {

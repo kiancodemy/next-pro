@@ -1,10 +1,12 @@
 import "./globals.css";
 import { Metadata } from "next";
+import "react-toastify/dist/ReactToastify.css";
 import localFont from "next/font/local";
 import Toastify from "@/components/Toastify";
 import Header from "@/components/Header";
 
 import StoreProvider from "./storeprovider";
+import Footer from "@/components/Footer";
 
 import Providers from "@/lib/features/Providers";
 const iran = localFont({
@@ -31,15 +33,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fa">
+    <html className="scroll-smooth" lang="fa">
       <body
-        className={`${iran.variable}  flex flex-col justify-between font-iran dark:bg-night`}
+        className={`${iran.variable} min-h-screen flex flex-col font-iran dark:bg-night`}
       >
         <Providers>
           <StoreProvider>
             <Header></Header>
             {children}
-          
+            <Footer></Footer>
           </StoreProvider>
         </Providers>
 

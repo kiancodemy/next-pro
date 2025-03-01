@@ -56,17 +56,12 @@ export default function Product({ id }: { id: string }) {
   lg:max-w-7xl mx-auto p-5 lg:p-8 rounded-md flex flex-col gap-y-6 lg:gap-x-4"
     >
       <div className="lg:grid flex flex-col gap-4 lg:gap-x-8 grid-cols-11">
-        <div className=" col-span-4 rounded-md">
+        <div className="col-span-4 flex flex-col items-center p-4">
           <Image
+            priority
             className="rounded-md"
             width={500}
-            style={{
-              width: "100%",
-              height: "auto",
-              objectFit: "cover",
-            }}
-            height={100}
-            quality={30}
+            height={500}
             src={find.image}
             alt="گوشی موبایل"
           />

@@ -4,16 +4,11 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 import { ProductType } from "@/type";
 
 import { cart } from "../cartutils";
-const initializeState = () => {
-  if (typeof window !== "undefined") {
-    const localStorageItem = localStorage.getItem("card");
-    return localStorageItem ? JSON.parse(localStorageItem) : { cartItems: [] };
-  } else {
-    return { cartItems: [] };
-  }
-};
 
-let initialState = initializeState();
+const initialState = {
+  cartItems: [],
+  address: null,
+};
 
 export const cardSlice = createSlice({
   name: "cardslice",

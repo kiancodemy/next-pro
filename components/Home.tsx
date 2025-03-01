@@ -1,28 +1,30 @@
-"use client";
 import React from "react";
-import Error from "@/app/erro";
 import Image from "next/image";
 import Link from "next/link";
-import Loading from "@/app/loading";
+import { notFound } from "next/navigation";
 import { ProductType } from "@/type";
-import { useGetproductsQuery } from "@/lib/api/productslice";
-export default function Home() {
-  const { data: item, isLoading, isError } = useGetproductsQuery("products");
 
-  return isLoading ? (
-    <Loading></Loading>
-  ) : isError ? (
-    <Error></Error>
-  ) : (
+export default async function Home() {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_ANALYTICS_ID}/products`, {
+    cache: "force-cache",
+    next: { revalidate: 7200 },
+  });
+
+  if (!res.ok) {
+    notFound();
+  }
+  const Allitems = await res.json();
+
+  return (
     <div
-      className=" dark:bg-night container bg-white md:max-w-3xl max-w-[350px]  mt-8
+      className=" dark:bg-night relative container bg-white md:max-w-3xl max-w-[350px]  mt-8
       lg:max-w-7xl mx-auto p-5 lg:p-8 rounded-md flex flex-col gap-4"
     >
       <h1 className="text-right dark:text-white font-bold lg:text-4xl text-2xl text-verydark">
         آخرین محصولات
       </h1>
       <div className=" dark:text-white mt-4 dark:bg-night grid md:grid-cols-2 grid-cols-1 gap-6 lg:grid-cols-4  md:max-w-3xl  rounded-md max-w-xs  lg:max-w-7xl mx-auto">
-        {item.map((item: ProductType) => {
+        {Allitems.map((item: ProductType) => {
           return (
             <div
               key={item._id}

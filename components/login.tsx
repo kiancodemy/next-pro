@@ -80,7 +80,7 @@ export default function Login() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="rounded-lg dark:bg-night  outline outline-white outline-2  shadow-lg hover:shadow-2xl duration-300 lg:max-w-sm p-6 bg-white   max-w-xs mx-auto container mt-8"
+      className="rounded-lg dark:bg-night outline outline-white outline-2  shadow-lg hover:shadow-2xl duration-300 lg:max-w-sm p-6  bg-white   max-w-xs mx-auto container mt-8"
     >
       <Link href="/">
         <IoReturnUpBack className="text-mainblue text-2xl"></IoReturnUpBack>

@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { toast, Zoom } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+
 import { ProductType } from "@/type";
 import { MdDeleteOutline } from "react-icons/md";
 import { RootState } from "@/lib/store";
