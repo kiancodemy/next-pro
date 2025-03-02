@@ -6,6 +6,7 @@ export default function Loginbutton() {
     <>
       <Link
         href="/login"
+        data-cy="login"
         className="flex justify-center hover:bg-mainblue hover:text-white duration-300 gap-x-4 items-center px-4 py-2 bg-lightblue rounded-md text-mainblue"
       >
         <IoEnterOutline className="lg:text-2xl text-sm"></IoEnterOutline>

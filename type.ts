@@ -57,3 +57,7 @@ export interface ITEM {
 export type OrderType = {
   id: String;
 };
+export type Inputs = {
+  email: string;
+  password: string;
+};

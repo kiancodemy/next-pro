@@ -3,9 +3,9 @@ import React from "react";
 import { useLoginMutation } from "@/lib/api/authslice";
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { IoReturnUpBack } from "react-icons/io5";
+import { IoReturnUpBack, IoEyeOffOutline } from "react-icons/io5";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
-import { IoEyeOffOutline } from "react-icons/io5";
+
 import { RootState } from "@/lib/store";
 import { useRouter } from "next/navigation";
 import { toast, Zoom } from "react-toastify";
@@ -18,11 +18,8 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { useForm, SubmitHandler } from "react-hook-form";
 import Link from "next/link";
-//input type
-type Inputs = {
-  email: string;
-  password: string;
-};
+import { Inputs } from "@/type";
+
 export default function Login() {
   const { userinfo } = useSelector((state: RootState) => state.auth);
   const [showpassword, setshowpassword] = useState<Boolean>(false);
@@ -51,6 +48,7 @@ export default function Login() {
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
+    
       const all = await info({ ...data }).unwrap();
 
       await dispatch(credential({ ...all }));
@@ -93,6 +91,7 @@ export default function Login() {
         <div className="flex flex-col text-sm gap-y-2">
           <h1 className="text-right">ایمیل</h1>
           <input
+            data-cy="log-email"
             {...register("email", {
               required: {
                 value: true,
@@ -119,6 +118,7 @@ export default function Login() {
           </div>
           <div className=" rounded-lg relative flex flex-col ">
             <input
+              data-cy="log-pass"
               {...register("password", {
                 required: {
                   value: true,
@@ -145,6 +145,7 @@ export default function Login() {
           </div>
         </div>
         <button
+          data-cy="log-button"
           type="submit"
           className="bg-mainblue hover:bg-darkblue duration-300  text-white py-2 px-6 rounded-lg"
         >
@@ -153,6 +154,7 @@ export default function Login() {
         <div className="flex text-sm justify-start gap-x-2 flex-row-reverse">
           <span>حساب ندارید؟</span>
           <Link
+            data-cy="register"
             href={`${
               search !== "/" ? `/signin?redirect=${search}` : "/signin"
             }`}

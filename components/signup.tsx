@@ -116,6 +116,7 @@ export default function Signup() {
         <div className="flex flex-col text-sm gap-y-2">
           <h1 className="text-right">اسم</h1>
           <input
+            data-cy="reg-name"
             {...register("name", {
               required: {
                 value: true,
@@ -132,6 +133,7 @@ export default function Signup() {
         <div className="flex flex-col text-sm gap-y-2">
           <h1 className="text-right">ایمیل</h1>
           <input
+            data-cy="reg-email"
             {...register("email", {
               required: {
                 value: true,
@@ -154,6 +156,7 @@ export default function Signup() {
 
           <div className=" rounded-lg relative flex flex-col ">
             <input
+              data-cy="reg-pass"
               {...register("password", {
                 required: {
                   value: true,
@@ -180,6 +183,7 @@ export default function Signup() {
           </div>
         </div>
         <button
+          data-cy="reg"
           type="submit"
           className="bg-mainblue mt-4 hover:bg-darkblue duration-300  text-white py-2 px-6 rounded-lg"
         >

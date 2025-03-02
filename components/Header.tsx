@@ -58,6 +58,7 @@ export default function Header() {
           فروشگاه من
         </h1>
         <div
+          data-cy="mobile-menue"
           onClick={() => {
             setopen(true);
             disableScroll.on();

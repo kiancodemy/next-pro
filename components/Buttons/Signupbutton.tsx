@@ -6,6 +6,7 @@ export default function Signupbutton() {
     <>
       <Link
         href="/signin"
+        data-cy="signin"
         className="px-4 justify-center py-2 flex items-center gap-2 bg-mainblue rounded-md text-white"
       >
         <GoPersonAdd className="text-xl text-white"></GoPersonAdd>
