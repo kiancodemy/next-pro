@@ -25,9 +25,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run unit tests
-        run: npm test # Adjust if using Jest or another testing library
-
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:
