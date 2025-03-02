@@ -1,1 +1,41 @@
+name: Next.js CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm' # Caches node_modules
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run unit tests
+        run: npm test # Adjust if using Jest or another testing library
+
+      - name: Run Cypress tests
+        uses: cypress-io/github-action@v6
+        with:
+          install: false # Dependencies already installed
+          start: npm run dev # Start Next.js
+          wait-on: 'http://localhost:3000' # Wait for Next.js to be ready
+          browser: chrome # Run tests in Chrome
+
+      - name: Build Next.js
+        run: npm run build
 
