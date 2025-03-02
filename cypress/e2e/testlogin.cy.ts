@@ -1,6 +1,6 @@
 describe("Login test", () => {
   beforeEach(() => {
-    cy.visit("/login");
+    cy.visit("/mainlogin");
   });
 
   it("should display the welcome message", () => {
