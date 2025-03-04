@@ -40,7 +40,7 @@ export default function Carousel() {
       className="z-10 my-2 container mt-8
       lg:max-w-7xl mx-auto p-5 items-center lg:p-8 rounded-md flex flex-col gap-4"
     >
-      <div className="w-full h-[200px] md:h-[600px]  bg-red-400  relative rounded-md overflow-hidden">
+      <div className="w-full h-[200px] md:h-[600px] relative rounded-md overflow-hidden">
         <FaCircleArrowLeft
           onClick={() => {
             index > 0
