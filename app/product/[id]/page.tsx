@@ -18,6 +18,9 @@ export async function generateStaticParams() {
 }
 export default function page({ params }: Id) {
   const { id } = params;
+  if (!id) {
+    notFound();
+  }
   return (
     <div>
       <MyProduct id={id}></MyProduct>
