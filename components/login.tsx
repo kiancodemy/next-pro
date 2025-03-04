@@ -20,7 +20,9 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import Link from "next/link";
 import { Inputs } from "@/type";
 
-export default function Login() {
+export function Login() {
+
+
   const { userinfo } = useSelector((state: RootState) => state.auth);
   const [showpassword, setshowpassword] = useState<Boolean>(false);
   const [info] = useLoginMutation();
