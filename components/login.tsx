@@ -21,8 +21,6 @@ import Link from "next/link";
 import { Inputs } from "@/type";
 
 export function Login() {
-
-
   const { userinfo } = useSelector((state: RootState) => state.auth);
   const [showpassword, setshowpassword] = useState<Boolean>(false);
   const [info] = useLoginMutation();
@@ -50,7 +48,6 @@ export function Login() {
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
-    
       const all = await info({ ...data }).unwrap();
 
       await dispatch(credential({ ...all }));
