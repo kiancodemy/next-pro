@@ -9,7 +9,7 @@ describe("check", () => {
   });
   it("login", () => {
     cy.getdata("login").click();
-    cy.location("pathname").should("eq", "/mainlogin");
+    cy.location("pathname").should("eq", "/login");
   });
   it("main", () => {
     cy.getdata("main").click();
