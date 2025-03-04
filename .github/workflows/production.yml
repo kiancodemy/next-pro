@@ -7,11 +7,13 @@ on:
   pull_request:
     branches:
       - master
-        
 
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_BACKEND_URL: ${{secrets.NEXT_PUBLIC_BACKEND_URL}}
+      BACKEND_URL: ${{secrets.BACKEND_URL}}
 
     steps:
       - name: Checkout repository
