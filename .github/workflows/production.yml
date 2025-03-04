@@ -8,6 +8,9 @@ on:
   pull_request:
     branches:
       - master
+env:
+  NEXT_PUBLIC_BACKEND_URL: ${{ secrets.NEXT_PUBLIC_BACKEND_URL }}
+  BACKEND_URL: ${{ secrets.BACKEND_URL }}
 
 jobs:
   build:
@@ -40,9 +43,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     needs: build # Ensure that the 'build' job runs first
-    env: # Define environment variables for the test job
-      NEXT_PUBLIC_BACKEND_URL: ${{ secrets.NEXT_PUBLIC_BACKEND_URL }}
-      BACKEND_URL: ${{ secrets.BACKEND_URL }}
 
     steps:
       - name: Checkout repository
