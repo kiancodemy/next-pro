@@ -10,7 +10,7 @@ on:
       - master
 
 jobs:
-  build-and-test:
+  test:
     runs-on: ubuntu-latest
     env:
       NEXT_PUBLIC_BACKEND_URL: ${{secrets.NEXT_PUBLIC_BACKEND_URL}}
@@ -20,22 +20,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-          cache: "npm" # Caches node_modules
-
-      - name: Install dependencies
-        run: npm install
-
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:
-          install: false # Dependencies already installed
-          start: npm run dev # Start Next.js
+          build: npm run build # Dependencies already installed
+          start: npm run start # Start Next.js
           wait-on: "http://localhost:3000" # Wait for Next.js to be ready
           browser: chrome # Run tests in Chrome
 
-      - name: Build Next.js
-        run: npm run build
