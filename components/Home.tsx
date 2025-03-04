@@ -2,13 +2,9 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ProductType } from "@/type";
 
 export default async function Home() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_ANALYTICS_ID}/products`, {
-    cache: "force-cache",
-    next: { revalidate: 7200 },
-  });
+  const res = await fetch(`${process.env.BACKEND_URL}/products`);
 
   if (!res.ok) {
     notFound();
