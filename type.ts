@@ -61,3 +61,17 @@ export type Inputs = {
   email: string;
   password: string;
 };
+export interface Address {
+  city: string;
+  adress: string;
+  postalcode: string;
+}
+
+export interface CartState {
+  cartItems: any[];
+  address: Address | null;
+  shipping: any | null;
+  totalprice: number | null;
+  itemprice: number | null;
+  tax: number | null;
+}

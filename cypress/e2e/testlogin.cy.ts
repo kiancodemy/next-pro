@@ -25,7 +25,7 @@ describe("Login test", () => {
     cy.contains(/ایمیل معتبر نیست/i).should("exist");
   });
   it.only("sucessful login", () => {
-    cy.intercept("POST", `${Cypress.env("back")}/users/login`).as("loginn");
+    
     cy.contains(/! پر کردن این فیلد الزامی است/i).should("not.exist");
     cy.contains(/ایمیل معتبر نیست/i).should("not.exist");
     cy.getdata("log-email").type("kia@gmail.com");

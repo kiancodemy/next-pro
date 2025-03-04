@@ -17,12 +17,12 @@ import { useRouter } from "next/navigation";
 import { toast, Zoom } from "react-toastify";
 import Process from "./Process";
 export default function Placeorder() {
-  const { address }: { address: addresstype } = useSelector(
+  const { address }: { address: any } = useSelector(
     (state: RootState) => state.card
   );
   let { cartItems } = useSelector((state: RootState) => state.card);
   let card = useSelector((state: RootState) => state.card);
-  const [data, { isLoading }] = useCreateorderMutation();
+  const [data] = useCreateorderMutation();
   const router = useRouter();
   const dispatch = useDispatch();
   ///final order command//
@@ -64,7 +64,7 @@ export default function Placeorder() {
 
   Protect();
   useEffect(() => {
-    if (!address?.address) {
+    if (address) {
       router.push("/shipping");
     }
   }, [address, router]);
@@ -126,10 +126,10 @@ export default function Placeorder() {
                     <span>{(items.qty * items.price).toLocaleString()}</span>
                   </div>
                   <div className="flex text-xs lg:text-base gap-x-1 lg:gap-x-2">
-                    <span>{items?.qty?.toLocaleString()}</span>
+                    <span>{items?.qty}</span>
 
                     <span>*</span>
-                    <span>{items?.price?.toLocaleString()}</span>
+                    <span>{items?.price}</span>
                   </div>
                 </div>
               </div>
@@ -149,15 +149,15 @@ export default function Placeorder() {
           </div>
           <div className="flex py-2 flex-row-reverse justify-start items-center gap-x-3 ">
             <span>قیمت کل</span>
-            <span>{card?.itemprice?.toLocaleString()}</span>
+            <span>{card?.itemprice}</span>
           </div>
           <div className="flex py-2  flex-row-reverse justify-start items-center gap-x-3 ">
             <span>مالیات</span>
-            <span>{card?.tax?.toLocaleString()}</span>
+            <span>{card?.tax}</span>
           </div>
           <div className="flex py-2 flex-row-reverse justify-start items-center gap-x-3 ">
             <span className="text-nowrap">قیمت کل بااحتساب مالیات</span>
-            <span>{card?.totalprice?.toLocaleString()}</span>
+            <span>{card?.totalprice}</span>
           </div>
 
           <button

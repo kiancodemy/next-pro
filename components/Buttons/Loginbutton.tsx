@@ -5,7 +5,7 @@ export default function Loginbutton() {
   return (
     <>
       <Link
-        href="/login"
+        href="/mainlogin"
         data-cy="login"
         className="flex justify-center hover:bg-mainblue hover:text-white duration-300 gap-x-4 items-center px-4 py-2 bg-lightblue rounded-md text-mainblue"
       >

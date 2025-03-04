@@ -6,9 +6,7 @@ import { notFound } from "next/navigation";
 import MyProduct from "@/components/ProductByid";
 
 export async function generateStaticParams() {
-  const getall = await fetch(
-    `${process.env.NEXT_PUBLIC_ANALYTICS_ID}/products`
-  );
+  const getall = await fetch(`${process.env.BACKEND_URL as string}/products`);
   if (!getall.ok) {
     notFound();
   }

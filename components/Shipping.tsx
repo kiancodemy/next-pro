@@ -9,15 +9,15 @@ import { useRouter } from "next/navigation";
 import { toast, Zoom } from "react-toastify";
 import { useRef, useEffect } from "react";
 
-import "react-toastify/dist/ReactToastify.css";
 
 import { useSelector, useDispatch } from "react-redux";
 import Process from "./Process";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Link from "next/link";
 //input type
+
 type Inputs = {
-  address:string
+  address: string;
   city: string;
   postalcode: string;
 };
@@ -35,8 +35,6 @@ export default function Shipping() {
       }
     }, 500);
   }, []);
-
-  //useEffect(() => {}, []);//
 
   //react-hhok-from//
   const {
@@ -89,7 +87,7 @@ export default function Shipping() {
         <div className="flex flex-col text-sm gap-y-2">
           <h1 className="text-right">آدرس</h1>
           <input
-            defaultValue={address?.address || ""}
+            defaultValue={address?.adress || ""}
             {...register("address", {
               required: {
                 value: true,

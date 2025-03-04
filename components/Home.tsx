@@ -1,15 +1,15 @@
-import React from "react";
+import React, { cache } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-
+import axios from "axios";
 export default async function Home() {
-  const res = await fetch(`${process.env.BACKEND_URL}/products`);
+  const res = await axios.get(`${process.env.BACKEND_URL as string}/products`);
 
-  if (!res.ok) {
+  if (res?.status !== 200) {
     notFound();
   }
-  const Allitems = await res.json();
+  const Allitems = await res.data;
 
   return (
     <div
@@ -20,7 +20,7 @@ export default async function Home() {
         آخرین محصولات
       </h1>
       <div className=" dark:text-white mt-4 dark:bg-night grid md:grid-cols-2 grid-cols-1 gap-6 lg:grid-cols-4  md:max-w-3xl  rounded-md max-w-xs  lg:max-w-7xl mx-auto">
-        {Allitems.map((item: ProductType) => {
+        {Allitems.map((item: any) => {
           return (
             <div
               key={item._id}

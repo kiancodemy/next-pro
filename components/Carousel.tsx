@@ -8,15 +8,18 @@ import Image from "next/image";
 import wathc from "@/public/images/watch.jpg";
 import del from "@/public/images/del.jpg";
 import { useEffect } from "react";
-
+import { useMemo } from "react";
 import { item } from "@/type";
 import mac from "@/public/images//imac.jpg";
 export default function Carousel() {
-  const items = [
-    { id: "1", image: wathc },
-    { id: "2", image: del },
-    { id: "3", image: mac },
-  ];
+  const items = useMemo(
+    () => [
+      { id: "1", image: wathc },
+      { id: "2", image: del },
+      { id: "3", image: mac },
+    ],
+    []
+  );
 
   const [index, setindex] = useState<number>(0);
   useEffect(() => {

@@ -4,10 +4,14 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 import { ProductType } from "@/type";
 
 import { cart } from "../cartutils";
-
-const initialState = {
+import { CartState } from "@/type";
+const initialState: CartState = {
   cartItems: [],
   address: null,
+  shipping: null,
+  totalprice: null,
+  itemprice: null,
+  tax: null,
 };
 
 export const cardSlice = createSlice({
