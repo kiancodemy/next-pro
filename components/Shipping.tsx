@@ -9,7 +9,6 @@ import { useRouter } from "next/navigation";
 import { toast, Zoom } from "react-toastify";
 import { useRef, useEffect } from "react";
 
-
 import { useSelector, useDispatch } from "react-redux";
 import Process from "./Process";
 import { useForm, SubmitHandler } from "react-hook-form";
@@ -87,7 +86,7 @@ export default function Shipping() {
         <div className="flex flex-col text-sm gap-y-2">
           <h1 className="text-right">آدرس</h1>
           <input
-            defaultValue={address?.adress || ""}
+            defaultValue={address?.address || ""}
             {...register("address", {
               required: {
                 value: true,
