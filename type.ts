@@ -63,7 +63,7 @@ export type Inputs = {
 };
 export interface Address {
   city: string;
-  adress: string;
+  address: string;
   postalcode: string;
 }
 
