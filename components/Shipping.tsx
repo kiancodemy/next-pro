@@ -22,6 +22,7 @@ type Inputs = {
 };
 export default function Shipping() {
   const { address } = useSelector((state: RootState) => state.card);
+  console.log(address);
 
   const dispatch = useDispatch();
   const router = useRouter();

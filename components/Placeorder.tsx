@@ -64,7 +64,7 @@ export default function Placeorder() {
 
   Protect();
   useEffect(() => {
-    if (address) {
+    if (!address) {
       router.push("/shipping");
     }
   }, [address, router]);

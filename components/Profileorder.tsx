@@ -9,7 +9,7 @@ import Image from "next/image";
 export default function Profileorder({ data }: { data: any }) {
   const router = useRouter();
   return (
-    <div className="flex-col py-4 gap-y-3 gap-x-3">
+    <div className="flex-col  py-4 gap-y-3 gap-x-3">
       {data.orderItems.map((item: ITEM) => {
         return (
           <div

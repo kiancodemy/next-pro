@@ -10,7 +10,6 @@ import { toast, Zoom } from "react-toastify";
 
 import { IoEyeOffOutline } from "react-icons/io5";
 
-
 import { credential } from "@/lib/features/auth";
 import { useSelector, useDispatch } from "react-redux";
 import { useForm, SubmitHandler } from "react-hook-form";
@@ -64,8 +63,8 @@ export default function Profile() {
       className=" dark:bg-night container bg-white md:max-w-3xl max-w-xs mt-6 mb-20 
   lg:max-w-7xl mx-auto p-5 lg:p-8 rounded-md flex flex-col gap-4"
     >
-      <div className="flex lg:flex-row flex-col lg:gap-x-8 gap-y-4">
-        <div className="basis-3/4 lg:overflow-x-visible overflow-x-scroll flex flex-col grow">
+      <div className="flex lg:flex-row flex-col lg:gap-x-12 gap-y-4">
+        <div className="basis-[70%]  overflow-x-scroll flex flex-col">
           {info?.map((items: any) => {
             return (
               <div key={items._id}>

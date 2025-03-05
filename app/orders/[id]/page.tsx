@@ -48,8 +48,8 @@ export default function Page({ params }: { params: OrderType }) {
       {isLoading ? (
         <Loading></Loading>
       ) : (
-        <div className="flex lg:flex-row flex-col gap-y-6 gap-x-2 ">
-          <div className="grow flex flex-col basis-[60%]">
+        <div className="flex lg:flex-row flex-col gap-y-6 gap-x-16 ">
+          <div className="overflow-x-scroll grow flex flex-col basis-[50%]">
             <Profileorder data={data}></Profileorder>
           </div>
           <div className="basis-[30%] py-6 px-2 shadow-md flex flex-col gap-y-6 rounded-md">
